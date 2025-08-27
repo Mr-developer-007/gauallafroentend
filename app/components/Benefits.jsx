@@ -1,36 +1,36 @@
 'use client';
 import React from 'react';
 
-const benefitsData = {
-    headers: ['Benefits', 'P-Tal', 'Stainless Steel', 'PTFE Teflon\nnon-stick', 'Cast Iron', 'Aluminium', 'Ceramics'],
+const dairyData = {
+    headers: ['Benefits', 'Cow Milk', 'Buffalo Milk', 'Soy Milk', 'Almond Milk', 'Packaged Milk'],
     rows: [
         {
-            title: '100% Non Toxic',
-            values: [true, true, false, true, false, true],
+            title: 'High Protein',
+            values: [true, true, true, false, false],
         },
         {
-            title: 'Non-stick',
-            values: [true, false, true, false, true, true],
+            title: 'Rich in Calcium',
+            values: [true, true, true, true, false],
         },
         {
-            title: 'Good for health',
-            values: [true, true, false, true, false, true],
+            title: 'Easily Digestible',
+            values: [true, false, true, true, true],
         },
         {
-            title: 'Retains nutrients',
-            values: [true, true, false, true, false, true],
+            title: 'Boosts Immunity',
+            values: [true, true, true, true, false],
         },
         {
-            title: 'Heats evenly, cooks faster',
-            values: [true, false, true, false, true, true],
+            title: 'Good for Heart Health',
+            values: [true, true, false, true, false],
         },
         {
-            title: 'Lasts for a lifetime',
-            values: [true, true, false, true, false, true],
+            title: 'Low in Fat',
+            values: [false, false, true, true, true],
         },
         {
-            title: 'Adds flavour to food',
-            values: [true, true, false, true, false, true],
+            title: 'Natural & Fresh',
+            values: [true, true, false, false, false],
         },
     ],
 };
@@ -49,20 +49,20 @@ const CrossIcon = () => (
     </svg>
 );
 
-const BenefitsTable = () => {
+const DairyBenefitsTable = () => {
     return (
         <section className="py-10 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <p className="text-sm uppercase text-gray-600">What makes us different</p>
-                    <h2 className="text-3xl font-bold text-gray-800">The right choice made easy</h2>
+                    <p className="text-sm uppercase text-gray-600">Why Choose Us</p>
+                    <h2 className="text-3xl font-bold text-gray-800">Dairy Product Comparison</h2>
                 </div>
 
                 <div className="overflow-x-auto">
                     <table className="min-w-full border border-gray-200 text-center">
                         <thead>
                             <tr className="bg-gray-100">
-                                {benefitsData.headers.map((header, index) => (
+                                {dairyData.headers.map((header, index) => (
                                     <th
                                         key={index}
                                         className="px-4 py-3 text-sm font-semibold text-gray-700 whitespace-pre-wrap border border-gray-200"
@@ -73,7 +73,7 @@ const BenefitsTable = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {benefitsData.rows.map((row, rowIndex) => (
+                            {dairyData.rows.map((row, rowIndex) => (
                                 <tr key={rowIndex} className="border-t border-gray-200">
                                     <td className="px-4 py-3 text-sm font-medium text-left text-gray-800 border border-gray-200">
                                         {row.title}
@@ -93,4 +93,4 @@ const BenefitsTable = () => {
     );
 };
 
-export default BenefitsTable;
+export default DairyBenefitsTable;

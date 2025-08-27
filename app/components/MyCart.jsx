@@ -61,7 +61,7 @@ export default function MyCart({ cart, setCart }) {
     if (userId) {
       fetchCart(userId);
     } else {
-      router.push("/login");
+      // router.push("/login");
     }
   }, []);
 

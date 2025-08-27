@@ -45,7 +45,7 @@ const AboutSection = () => {
           </div>
 
           {/* Floating Image Box */}
-          <div className="absolute bottom-[-30px] right-6 sm:right-10 w-44 sm:w-48 rounded-xl overflow-hidden border-4 border-white animate-fade-up shadow-lg">
+          {/* <div className="absolute bottom-[-30px] right-6 sm:right-10 w-44 sm:w-48 rounded-xl overflow-hidden border-4 border-white animate-fade-up shadow-lg">
             <img
               src="/img/circleimg.webp"
               alt="Gaualla Farm"
@@ -53,7 +53,7 @@ const AboutSection = () => {
               height={200}
               className="rounded-xl h-[200px] w-full object-cover"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Right Content */}

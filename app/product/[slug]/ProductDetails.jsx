@@ -5,18 +5,18 @@ import { FaPlus } from "react-icons/fa6";
 
 import Description from "./Description ";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination ,Autoplay} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import AyutramartProduct from "../../AyutramartData";
+// import AyutramartProduct from "../../AyutramartData";
 import ProductAyurvedCard from "@/app/components/ProductAyurvedCard";
 import { FaStar } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
 import { FaMinus } from "react-icons/fa";
 
-import { Autoplay } from "swiper/modules";
+
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -29,6 +29,7 @@ import BenefitsTable from "@/app/components/Benefits";
 import axios from "axios";
 import { baseurl, imageurl } from "@/app/components/utlis/apis";
 import { useRouter } from "next/navigation";
+import Coundown from "./Coundown";
 
 const ProductDetails = ({ slug }) => {
   const route = useRouter()
@@ -94,27 +95,35 @@ const singleProduct= {
 
 const [productData,setProductData]=useState()
 
-const fetchproduct=async(userId=null)=>{
+const fetchproduct=async()=>{
   setLoader(true)
-  const response = await axios.get(`${baseurl}/singleproduct/${slug}`)
+  const response = await axios.get(`${baseurl}/getproduct/product/${slug}`)
   const data= await response.data;
   if(data.success){
     setProductData(data.product)
     setActiveImg(data.product.images[0])
-    if(userId){
-fetchallreadyincart(userId,data.product.id);
-    }
+    
     
 }
    setLoader(false)
 }
 
 
-const fetchallreadyincart=async(user_id,product_id)=>{
-  const response= await axios.post(`${baseurl}/alreadyincart`,{user_id,product_id});
-  const data= await response.data;
+// const fetchallreadyincart=async(user_id,product_id)=>{
+//   const response= await axios.post(`${baseurl}/alreadyincart`,{user_id,product_id});
+//   const data= await response.data;
+//   if(data.success){
+// setIncart(true)
+//   }
+
+// }
+
+const [AyutramartProduct,setAyutramartProduct]=useState()
+const fetchallProduct=async()=>{
+  const response= await axios.get(`${baseurl}/getproduct/all`)
+  const data = await response.data;
   if(data.success){
-setIncart(true)
+    setAyutramartProduct(data.product)
   }
 
 }
@@ -124,13 +133,10 @@ setIncart(true)
 useEffect(()=>{
 
 
-      const userId = localStorage.getItem("userid");
-    if (userId) {
-        fetchproduct(userId)
-    }else{
+    
       fetchproduct()
-
-    }
+fetchallProduct()
+    
     
 },[])
 
@@ -267,7 +273,7 @@ if(loader){
             <div className="leftside flex flex-col-reverse xl:flex-row gap-5 items-center justify-center relative lg:sticky top-0 lg:top-20 h-full">
 
               <div className="sideimages scrollbar-hide hidden lg:flex flex-wrap justify-center gap-2 xl:block w-full xl:w-auto  lg:h-[500px] overflow-auto">
-                {productData?.images?.map((elm, index) => (
+                {JSON.parse(productData?.images)?.map((elm, index) => (
                   <div
                     key={index}
                     onClick={() => setActiveImg(elm)}
@@ -281,22 +287,25 @@ if(loader){
 
               <div className="mainimage max-w-md mx-auto relative ">
                 <Swiper
-                  modules={[Pagination]}
-
-                  pagination={{ clickable: true }}
-                  loop={true}
-                  className="w-[86%] lg:w-full h-[300px]  md:h-[500px]"
-                >
-                  {productData?.images?.map((img, i) => (
-                    <SwiperSlide key={i}>
-                      <img
-                        src={`${imageurl}/${img}`}
-                        alt={`Image ${i}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+      modules={[Pagination, Autoplay]}
+      autoplay={{
+        delay: 3000, // slide every 3 seconds
+        disableOnInteraction: false, // keep autoplay after swipe
+      }}
+      pagination={{ clickable: true }}
+      loop={true} // infinite loop
+      className="w-[86%] lg:w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden"
+    >
+      {JSON.parse(productData?.images || "[]").map((img, i) => (
+        <SwiperSlide key={i}>
+          <img
+            src={`${imageurl}/${img}`}
+            alt={`Image ${i}`}
+            className="w-full h-full object-cover"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
               </div>
             </div>
 
@@ -426,7 +435,7 @@ if(loader){
                         <FaPlus />
                       </button>
                     </div> */}
-                    <div className="flex gap-3 text-xl">
+                    {/* <div className="flex gap-3 text-xl">
                      {inCart? <button
                         // onClick={() => {
                         //  handeladdtocart(productData?.id)
@@ -446,16 +455,17 @@ if(loader){
                         ADD TO CART
                       </button>
                       }
-                      {/* <ToastContainer  /> */}
+            
 
                       <button  className="  p-2 lg:px-4 border border-gray-400 text-xs lg:text-sm  rounded-lg hover:bg-[#073439] hover:text-white">
                         BUY NOW
                       </button>
-                    </div>
+                    </div> */}
+                    <Coundown />
                   </div>
 
 
-                  <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
+                  {/* <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
                     {items?.map((item, index) => (
                       <div key={index} className="flex flex-col items-center text-center max-w-[120px]">
                         <div className="mb-2">
@@ -464,7 +474,7 @@ if(loader){
                         <p className="text-sm text-gray-800 font-medium">{item.text}</p>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
 
                   <SecurePayments />
 
