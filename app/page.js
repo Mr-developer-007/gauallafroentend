@@ -22,7 +22,7 @@ export default function page() {
     <>
       <HeroSection />
       <CategoriesSlider />
-      <AboutSection/>
+      <AboutSection  need={false}/>
       <ProductAyurved />
       <OfferPorductValid />
         <Testmonails />

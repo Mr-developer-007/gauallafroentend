@@ -26,7 +26,6 @@ export default function ProductAyurvedCard({ product }) {
 
 
  
-    console.log(images)
 
   const [isDescriptionExpanded, setDescriptionExpanded] = useState(false);
   const wishList = useSelector((state) => state.wish.wishlist);
@@ -174,7 +173,7 @@ export default function ProductAyurvedCard({ product }) {
 
   return (
     <>
-      <div className="card group shadow-lg relative hover:shadow-xl transition-shadow bg-white duration-300 rounded-lg overflow-hidden">
+      <Link    href={`/product/${slug}`} className="card group shadow-lg relative hover:shadow-xl transition-shadow bg-white duration-300 rounded-lg overflow-hidden">
         <div className="relative">
           {old_price && (
             <span className="absolute top-2 lg:top-5 left-2 lg:left-5 z-10 bg-green-500 text-white text-xs font-semibold py-1 px-3 rounded-full">
@@ -248,7 +247,7 @@ export default function ProductAyurvedCard({ product }) {
         <div className="absolute">
           <ToastContainer />
         </div>
-      </div>
+      </Link>
 
       {quickView && <QuickView />}
     </>

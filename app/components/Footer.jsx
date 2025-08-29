@@ -219,19 +219,7 @@ Sector 85, Mohali, 140306, India
                 </a>
               </div>
 
-              <div className="flex flex-wrap gap-y-2 mt-2 items-center gap-x-4">
-                {payments.map((elm, index) => (
-                  <div key={index}>
-                    <div className="py-2 px-2 rounded shadow-2xl bg-[#074a51] flex items-center justify-center">
-                      <img
-                        src={elm.img}
-                        alt="payments"
-                        className="h-3 xl:h-4 w-auto object-cover object-center"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              
             </div>
           </div>
         </div>

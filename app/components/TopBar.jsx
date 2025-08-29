@@ -39,12 +39,13 @@ export default function TopBar() {
               </span>
             </li>
           </ul>
-
-          <ul className="flex items-center gap-x-4 text-sm">
-            <li className="flex items-center gap-x-2">
+           <p className="flex items-center gap-x-2">
               <AiFillSafetyCertificate />
               <span>100% Secure delivery without contacting the courier</span>
-            </li>
+            </p>
+
+          <ul className="flex items-center gap-x-4 text-sm">
+           
 
             <li>
               <span className="border-l-2 h-6 mx-3 border-gray-200"></span>
@@ -60,21 +61,6 @@ export default function TopBar() {
               <span className="border-l-2 h-6 mx-3 border-gray-200"></span>
             </li>
 
-            <li className="flex items-center gap-x-4">
-              <button
-                onClick={() => setLangPop(true)}
-                className="flex items-center gap-x-1 text-sm"
-              >
-                <span>English</span>
-                <IoIosArrowDown
-                  className={`${langPop ? "rotate-180" : "rotate-0"}`}
-                />
-              </button>
-              <button className="flex items-center gap-x-1 text-sm">
-                <span>USD</span>
-                <IoIosArrowDown />
-              </button>
-            </li>
           </ul>
         </div>
       </div>

@@ -53,30 +53,13 @@ const Description = ({data}) => {
 
         {activeTab === "additional-info" && (
           <div>
-            <h3 className="font-bold text-xl mt-6">Returns Policy</h3>
-            <div className="text-lg text-gray-600">
-              <p>
-                We stand behind the quality of our Brass Tawa with Insulated Handle. If you are not fully satisfied, you may return unopened brass tawas within 30 days of delivery for a full refund.
-              </p>
-              <p>
-                If the return is due to an error on our part—such as receiving an incorrect or defective item—we will also cover the return shipping cost.
-              </p>
-              <br />
-
-              <p>
-                Refunds are typically processed within four weeks of return shipment. This includes the transit time for us to receive the product (5–10 business days), processing time (3–5 business days), and your bank’s refund time (5–10 business days).
-              </p>
-              <br />
-
-              <p>
-                To return a Brass Tawa, simply log in to your account, view your order through the 'Complete Orders' section, and click the 'Return Item(s)' button. We will notify you via email once your refund is processed.
-              </p>
-            </div>
-
+          
             <h3 className="font-bold text-xl mt-6">Shipping</h3>
-            <p className="text-lg text-gray-600">
-              We offer worldwide shipping for our Brass Tawa with Insulated Handle. Delivery estimates and shipping options are displayed at checkout, based on your location and product availability. Please note that some regional restrictions may apply.
-            </p>
+           <p className="text-lg text-gray-600">
+  We offer worldwide delivery for our fresh dairy products, including A2 milk, ghee, butter, and paneer. 
+  Delivery estimates and shipping options are shown at checkout, based on your location and product availability. 
+  Please note that some regional restrictions may apply.
+</p>
           </div>
 
         )}

@@ -39,7 +39,7 @@ export default function Revival() {
 
     return (
         <div className="lg:pr-10 ">
-            <div className="relative bg-[#a5e5722e] lg:rounded-r-full xl:min-h-[80vh] mt-10 mb-10 lg:mb-20">
+            <div className="relative bg-[#F8FDE6] lg:rounded-r-full xl:min-h-[80vh] mt-10 mb-10 lg:mb-20 overflow-hidden">
                 <div className="h-full flex flex-col lg:flex-row text-center lg:text-start items-start lg:items-center gap-4 lg:gap-x-10 justify-center py-5 lg:py-16 px-5 md:px-12 lg:px-0 xl:pl-0 transition-opacity duration-1000 ease-in-out ">
 
                     {/* LEFT SIDE TEXT */}
@@ -87,10 +87,13 @@ export default function Revival() {
                     </div>
 
                     {/* RIGHT SIDE IMAGE */}
+                    {/* <div className="rounded-full p-10"> */}
                     <div
-                        className="mx-auto lg:mx-0 h-[250px] w-[250px] xl:h-[500px] md:h-[170px] md:w-[170px] lg:w-[300px] lg:h-[300px] xl:w-[38%] bg-center bg-contain rounded-full"
-                        style={{ backgroundImage: `url(/img/circleimg.webp)` }}
+                        className="mx-auto lg:mx-0 h-[250px] w-[250px] xl:h-[500px] md:h-[170px] md:w-[170px] lg:w-[300px] lg:h-[300px] xl:w-[38%]  bg-contain  "
+                        style={{ backgroundImage: `url(/img4.jpg)` }}
                     ></div>
+
+                    {/* </div> */}
                 </div>
             </div>
         </div>

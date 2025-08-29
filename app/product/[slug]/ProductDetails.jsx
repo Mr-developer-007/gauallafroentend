@@ -277,10 +277,10 @@ if(loader){
                   <div
                     key={index}
                     onClick={() => setActiveImg(elm)}
-                    className={`lg:w-[150px] w-[23%] h-[80px] sm:h-[150px] border border-green-500 cursor-pointer ${index !== 0 ? 'mt-0 lg:mt-2' : ''
+                    className={`lg:w-[150px]  md:w-[23%] h-[80px] sm:h-[150px] border border-green-500 cursor-pointer ${index !== 0 ? 'mt-0 lg:mt-2' : ''
                       }`}
                   >
-                    <img src={`${imageurl}/${elm}`} className="w-full h-full object-cover" />
+                    <img src={`${imageurl}/${elm}`} className="w-full h-full " />
                   </div>
                 ))}
               </div>
@@ -301,7 +301,7 @@ if(loader){
           <img
             src={`${imageurl}/${img}`}
             alt={`Image ${i}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full "
           />
         </SwiperSlide>
       ))}
@@ -325,44 +325,35 @@ if(loader){
                 <p className="text-green-500 text-base">
                  {productData?.name }  
                   <strong className="font-bold">
-                    {" "}trusted by 1 Lakh+ home chefs across India
+                    {" "}trusted by 200+  home 
                   </strong>
                 </p>
 
 
-                {readMore ? (
-                  <div className="space-y-4 border-b pb-4 text-gray-700 text-base md:text-lg leading-relaxed">
-                    <p className="text-lg">
-                      Rediscover the joy of traditional cooking with our handcrafted Brass Tawa, designed to deliver perfectly cooked rotis, parathas, and flatbreads while enhancing the nutritional value of your meals. The insulated handle ensures a secure, cool grip, offering the perfect balance of safety and style.
+                {readMore ? (<>
+                  <div className="space-y-4 border-b pb-4 text-gray-700 text-base md:text-lg leading-relaxed" dangerouslySetInnerHTML={{__html:productData?.description2 ? productData?.description2 :""}}>
+                    
 
+                    
 
-                    </p>
-                    <p>
-                      <span className="font-semibold">For best results:</span>{" "}
-                      Consume 1/4th of the spoon, once daily after meal with
-                      lukewarm water/milk.
-                    </p>
+                  </div>
 
-                    <h3 className="text-xl md:text-2xl font-semibold text-black pt-2">
-                      Why Choose Brass for Cooking?
-                    </h3>
-                    <p>
-                      Brass has been a part of Indian kitchens for centuries due to its Ayurvedic and health-promoting properties. Cooking on brass not only enhances the flavor and texture of your food but is also believed to help with better digestion and overall wellness. Unlike non-stick cookware, this brass tawa is free from harmful coatings, making it a natural and safe choice for your family.
-                    </p>
-
-                    <p
+<p
                       className="mt-2 text-green-600 hover:text-green-800 transition font-medium flex items-center gap-x-1"
                       onClick={() => setReadMore(false)}
                     >
                       Read Less <IoIosArrowUp />
                     </p>
+                    </>
 
-                  </div>
                 ) : (
                   <>
                     <p className="border-b pb-2 text-base text-gray-700 flex gap-2 items-center">
-                      Rediscover the joy of traditional cooking with our handcrafted
-                      <span
+<p>
+  {productData?.description2
+    ? productData.description2.replace(/<[^>]+>/g, "").slice(0, 75) + "..."
+    : ""}
+</p>                      <span
                         className=" text-green-600 font-semibold hover:text-green-800 transition flex items-center gap-x-1"
                         onClick={() => setReadMore(true)}
                       >
@@ -397,7 +388,7 @@ if(loader){
                     />
                     <span className="font-semibold text-base md:text-lg">50</span>
                   </div>
-                  Indian Brass Utensils Coins on this order
+                  {productData?.name }   Utensils Coins on this order
                 </div>
 
 

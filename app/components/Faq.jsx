@@ -46,7 +46,7 @@ export default function FAQSection() {
         {/* Image Section */}
         <div className="w-full md:w-1/3 flex justify-center">
           <img
-            src="/img/blogimg1.webp"
+            src="/img3.jpg"
             alt="brass"
             className="w-full h-[300px] sm:h-[400px] object-cover rounded-lg shadow-md"
           />

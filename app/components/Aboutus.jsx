@@ -29,7 +29,7 @@ const features = [
   },
 ];
 
-const AboutSection = () => {
+const AboutSection = ({need=true}) => {
   return (
     <section className="py-16 px-5 md:px-16 xl:px-32 bg-white">
       <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -40,7 +40,7 @@ const AboutSection = () => {
             <img
               src="/img1.jpg"
               alt="Gaualla Dairy"
-              className="rounded-2xl h-[400px] object-cover w-full transform group-hover:scale-105 duration-500"
+              className="rounded-2xl h-[400px] object-fill w-full transform group-hover:scale-105 duration-500"
             />
           </div>
 
@@ -89,6 +89,7 @@ const AboutSection = () => {
             <strong>Freshness That Arrives On Time:</strong> Our services have a quick turnaround without compromising quality. When you buy standardized milk online, it reaches you with the ultimate freshness; you get it delivered to your home within just 3 days of milking. 
             <br />
             <br />
+            {need && <>  
             <strong>Heritage of Purity – 40 Years of Trusted Dairy Excellence:</strong> Since 1975 – A Legacy Rooted in Purity
             <br />
             <strong>Milestones That Make Us Proud:</strong>
@@ -98,6 +99,7 @@ const AboutSection = () => {
               <li>500 Dedicated Team Members & Volunteers</li>
               <li>400 Healthy Desi Cows</li>
             </ul>
+            </> }
           </p>
 
         

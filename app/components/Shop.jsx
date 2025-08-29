@@ -76,18 +76,18 @@ setCategorydata(data.category)
           <SwiperSlide key={index}>
             <Link
               href={`/product?name=${item.name}`}
-              className="block group bg-white rounded-xl p-2 hover:shadow-md transition border border-gray-200"
+              className="block group bg-white rounded-xl p-1 hover:shadow-md transition border border-gray-200"
             >
               <div className="flex justify-center">
                 <Image
                   src={`${imageurl}/${item.image}`}
                   alt={item.name}
-                  width={100}
-                  height={100}
+                  width={130}
+                  height={130}
                   className="transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <h5 className="text-center mt-2 text-sm font-medium">
+              <h5 className="text-center mt-2 capitalize font-medium">
                 {item.name}
               </h5>
             </Link>

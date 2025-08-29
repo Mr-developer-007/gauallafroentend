@@ -7,14 +7,14 @@ export default function MarqueeText() {
       <div className="w-full bg-[#000] text-white py-3 ">
         <Marquee gradient={false} speed={50} pauseOnHover>
           <ul className="flex gap-6 text-sm md:text-xl list-none mx-4 md:mx-10">
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
-            <li> Transforming Traditions into Trends  - </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
+            <li> 100% Secure delivery without contacting the courier </li>
           
           </ul>
         </Marquee>

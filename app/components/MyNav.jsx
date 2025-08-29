@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { RiUserLine } from "react-icons/ri";
 import { BsCartPlus } from "react-icons/bs";
@@ -12,6 +12,8 @@ import AyutramartProduct from "../AyutramartData";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { FaAngleRight, FaMinus, FaPlus } from "react-icons/fa6";
+import axios from "axios";
+import { baseurl, imageurl } from "./utlis/apis";
 
 export default function MyNav() {
   const [sideBar, setSideBar] = useState(false);
@@ -88,7 +90,7 @@ export default function MyNav() {
              <img
                 src="/img/logo.webp"
                 alt="Indian Brass Utensils Logo"
-                className="w-28 lg:w-48"
+                className="w-32 lg:w-64"
               /> 
 
               
@@ -107,39 +109,8 @@ export default function MyNav() {
 
 
 
-              <li className="border-b border-gray-300 py-2">
-                <button
-                  onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                  className="flex items-center gap-x-1 text-sm"
-                >
-                  <span>English</span>
-                  <IoIosArrowDown />
-                </button>
-                {isLanguageOpen && (
-                  <ul className="pl-4 mt-2 space-y-2">
-                    <li>Spanish</li>
-                    <li>French</li>
-                    <li>German</li>
-                  </ul>
-                )}
-              </li>
-
-              <li className="border-b border-gray-300 py-2">
-                <button
-                  onClick={() => setIsCurrencyOpen(!isCurrencyOpen)}
-                  className="flex items-center gap-x-1 text-sm"
-                >
-                  <span>USD</span>
-                  <IoIosArrowDown />
-                </button>
-                {isCurrencyOpen && (
-                  <ul className="pl-4 mt-2 space-y-2">
-                    <li>EUR</li>
-                    <li>GBP</li>
-                    <li>JPY</li>
-                  </ul>
-                )}
-              </li>
+         
+             
             </ul>
           </div>
         </div>
@@ -155,6 +126,38 @@ export default function MyNav() {
 
   const cartLengthTotal = cartItems.reduce((accum, curntVal) => accum + curntVal.qnty, 0)
 
+const [searchProducts,setSearchProducts]=useState()
+
+  const getProduct=async()=>{
+    if(productSearch.trim().length >=2){
+    const response = await axios.get(`${baseurl}/getproduct/product/search/${productSearch}`)
+    const data= await response.data;
+    if(data.success){
+      setSearchProducts(data.data)
+    }
+
+    }
+
+    else{
+      return
+    }
+  }
+
+  useEffect(()=>{
+const inter = setTimeout(() => {
+  getProduct()
+}, 500);
+
+return ()=> clearTimeout(inter)
+
+  },[productSearch])
+
+
+
+
+
+
+
 
   return (
     <>
@@ -163,7 +166,7 @@ export default function MyNav() {
           <img
             src="/img/logo.webp"
             alt="Indian Brass Utensils Logo"
-            className="w-32 md:w-28 lg:w-34 cursor-pointer"
+            className="w-24 md:w-28 lg:w-34 cursor-pointer"
           /> 
 
         </Link>
@@ -204,19 +207,23 @@ export default function MyNav() {
           />
           <IoSearch className="absolute right-5 top-[22px] text-gray-600" />
 
-          {productSearch && searchProductFilter.length > 0 && (
+          {searchProducts  && productSearch &&  (
             <div className="absolute top-full left-0 w-full bg-white mt-2 rounded-md shadow-lg max-h-[220px] overflow-y-auto z-50">
               <ul className="divide-y divide-gray-200">
-                {searchProductFilter.map((item, index) => (
+                {searchProducts?.map((item, index) => (
                   <li
                     key={index}
                     className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
                   >
-                    <Link href={`/product/${item.title
+                    <Link href={`/product/${item.name
                       .toLowerCase()
                       .replace(/,/g, "")
                       .split(" ")
-                      .join("-")}`} onClick={() => productSearch("")}>  {item.title || item.heading} </Link>
+                      .join("-")}`} onClick={() => productSearch("")} className="flex justify-between items-center"> <span className="text-[19px]">{item.name }</span>
+                      
+                      <img src={`${imageurl}/${ (JSON.parse(item?.images))[0]}`} alt={item.name } className="h-15 w-15 rounded-full" />
+                      
+                       </Link>
 
                   </li>
                 ))}
@@ -224,7 +231,7 @@ export default function MyNav() {
             </div>
           )}
 
-          {productSearch && searchProductFilter.length === 0 && (
+          {!searchProducts  && productSearch && (
             <div className="absolute top-full left-0 w-full bg-white mt-2 rounded-md shadow-lg p-4 text-gray-500 text-sm z-50">
               No products found.
             </div>

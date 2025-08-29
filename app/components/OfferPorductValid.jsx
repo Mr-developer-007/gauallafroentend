@@ -4,7 +4,7 @@ import { FaLongArrowAltRight, FaLeaf, FaHeart, FaShieldAlt, FaSeedling, FaMapMar
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function OfferProductValid() {
+export default function   OfferProductValid() {
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-05-01T00:00:00"); 
     const now = new Date();
@@ -90,7 +90,7 @@ export default function OfferProductValid() {
               <div className="relative w-full max-w-sm">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/img/blog.webp"
+                    src="/img2.jpg"
                     alt="A2 Desi Cow Milk"
                     width={400}
                     height={500}

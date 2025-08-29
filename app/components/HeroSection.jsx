@@ -49,7 +49,7 @@ useEffect(()=>{
               <img
                 src={`${imageurl}/${elm.image}`}
                 alt="banner"
-                className="w-full h-full object-center md:object-center"
+                className="w-full h-full "
               />
             </div>
           </SwiperSlide>
