@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
-import { ToastContainer } from "react-toastify";
 import Link from "next/link";
 
 const products = [
@@ -241,9 +240,7 @@ const FavouriteProducts = () => {
                 </div>
               </div>
 
-              <div className="absolute">
-                <ToastContainer />
-              </div>
+              
             </div>
           ))}
         </div>

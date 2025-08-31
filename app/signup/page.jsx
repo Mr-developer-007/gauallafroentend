@@ -115,178 +115,257 @@ route.push("/")
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      
+ <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-700 py-3 md:py-0">
+  <div className="flex w-full  shadow-2xl  overflow-hidden bg-white/10 backdrop-blur-xl">
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-6 shadow-xl rounded-xl sm:px-10 border border-gray-100">
-          <form className="space-y-5" onSubmit={handleSubmit}>
-            {/* Name Field */}
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Full Name <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaUser className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`py-3 pl-10 block w-full border ${errors.name ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.name ? 'focus:ring-red-500' : 'focus:ring-indigo-500'} focus:border-transparent`}
-                  placeholder="John Doe"
-                />
-              </div>
-              {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-            </div>
-
-            {/* Email Field */}
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaEnvelope className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`py-3 pl-10 block w-full border ${errors.email ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.email ? 'focus:ring-red-500' : 'focus:ring-indigo-500'} focus:border-transparent`}
-                  placeholder="example@example.com"
-                />
-              </div>
-              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-            </div>
-
-            {/* Phone Field */}
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                Phone Number <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaPhone className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={`py-3 pl-10 block w-full border ${errors.phone ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.phone ? 'focus:ring-red-500' : 'focus:ring-indigo-500'} focus:border-transparent`}
-                  placeholder="1234567890"
-                />
-              </div>
-              {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
-            </div>
-
-           
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  value={formData.password}
-                  onChange={handleChange}
-                  className={`py-3 pl-10 pr-10 block w-full border ${errors.password ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.password ? 'focus:ring-red-500' : 'focus:ring-indigo-500'} focus:border-transparent`}
-                  placeholder="••••••••"
-                />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="text-gray-400 hover:text-gray-500 focus:outline-none"
-                  >
-                    {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
-                  </button>
-                </div>
-              </div>
-              {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password}</p>}
-              <p className="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
-            </div>
-
-            {/* Confirm Password Field */}
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                Confirm Password <span className="text-red-500">*</span>
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className={`py-3 pl-10 pr-10 block w-full border ${errors.confirmPassword ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'focus:ring-red-500' : 'focus:ring-indigo-500'} focus:border-transparent`}
-                  placeholder="••••••••"
-                />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <button
-                    type="button"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="text-gray-400 hover:text-gray-500 focus:outline-none"
-                  >
-                    {showConfirmPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
-                  </button>
-                </div>
-              </div>
-              {errors.confirmPassword && <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>}
-            </div>
-
-            {/* Terms and Conditions */}
-            <div className="flex items-center">
-              <input
-                id="terms"
-                name="terms"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                I agree to the <a href="#" className="text-indigo-600 hover:text-indigo-500">Terms and Conditions</a>
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <div>
-              <button
-                type="submit"
-                disabled={loader}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
-              >
-              {  loader?"Loading...":"Create Account"}
-              </button>
-            </div>
-          </form>
-
-          {/* Sign In Link */}
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Already have an account?{' '}
-              <a href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Sign in
-              </a>
-            </p>
-          </div>
+    <div className="hidden lg:block w-3/5 relative rounded-2xl">
+      <img
+        src="/img1.jpg"
+        alt="Background"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+        <div className="text-white text-center px-8">
+          <h1 className="text-4xl font-extrabold mb-4 leading-snug drop-shadow-lg">
+            Join Our Community
+          </h1>
+          <p className="text-lg text-gray-200 max-w-md mx-auto">
+            Create an account to unlock exclusive features and benefits!
+          </p>
         </div>
       </div>
     </div>
+
+   
+
+    <div className="w-full lg:w-2/5 bg-white p-6 md:p-12 flex flex-col justify-center rounded-none">
+      <h2 className="text-3xl font-extrabold text-gray-800 mb-8 text-center">
+        Create Account
+      </h2>
+
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        {/* Full Name */}
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Full Name <span className="text-red-500">*</span>
+          </label>
+          <div className="mt-1 relative">
+            <i className="fas fa-user absolute left-3 top-3 text-gray-400" />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+              className={`w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border ${
+                errors.name ? "border-red-300" : "border-gray-200"
+              } focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition`}
+            />
+          </div>
+          {errors.name && (
+            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+          )}
+        </div>
+
+        {/* Email */}
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email <span className="text-red-500">*</span>
+          </label>
+          <div className="mt-1 relative">
+            <i className="fas fa-envelope absolute left-3 top-3 text-gray-400" />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className={`w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border ${
+                errors.email ? "border-red-300" : "border-gray-200"
+              } focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition`}
+            />
+          </div>
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+          )}
+        </div>
+
+        {/* Phone */}
+        <div>
+          <label
+            htmlFor="phone"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Phone Number <span className="text-red-500">*</span>
+          </label>
+          <div className="mt-1 relative">
+            <i className="fas fa-phone absolute left-3 top-3 text-gray-400" />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Mobile Number"
+              className={`w-full pl-10 pr-4 py-3 rounded-lg bg-gray-50 border ${
+                errors.phone ? "border-red-300" : "border-gray-200"
+              } focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition`}
+            />
+          </div>
+          {errors.phone && (
+            <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+          )}
+        </div>
+
+        {/* Password */}
+        <div>
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Password <span className="text-red-500">*</span>
+          </label>
+          <div className="mt-1 relative">
+            <i className="fas fa-lock absolute left-3 top-3 text-gray-400" />
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="••••••••"
+              className={`w-full pl-10 pr-12 py-3 rounded-lg bg-gray-50 border ${
+                errors.password ? "border-red-300" : "border-gray-200"
+              } focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition`}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+            >
+              <i className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"} />
+            </button>
+          </div>
+          {errors.password && (
+            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+          )}
+          <p className="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
+        </div>
+
+        {/* Confirm Password */}
+        <div>
+          <label
+            htmlFor="confirmPassword"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Confirm Password <span className="text-red-500">*</span>
+          </label>
+          <div className="mt-1 relative">
+            <i className="fas fa-lock absolute left-3 top-3 text-gray-400" />
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type={showConfirmPassword ? "text" : "password"}
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="••••••••"
+              className={`w-full pl-10 pr-12 py-3 rounded-lg bg-gray-50 border ${
+                errors.confirmPassword ? "border-red-300" : "border-gray-200"
+              } focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition`}
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+            >
+              <i
+                className={showConfirmPassword ? "fas fa-eye-slash" : "fas fa-eye"}
+              />
+            </button>
+          </div>
+          {errors.confirmPassword && (
+            <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+          )}
+        </div>
+
+        {/* Terms */}
+        <div className="flex items-center">
+          <input
+            id="terms"
+            name="terms"
+            type="checkbox"
+            checked={formData.terms}
+            onChange={handleChange}
+            className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+          />
+          <label htmlFor="terms" className="ml-2 text-sm text-gray-700">
+            I agree to the{" "}
+            <a
+              href="#"
+              className="text-indigo-600 hover:underline transition"
+            >
+              Terms and Conditions
+            </a>
+          </label>
+        </div>
+        {errors.terms && (
+          <p className="mt-1 text-sm text-red-600">{errors.terms}</p>
+        )}
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={loader}
+          className="w-full py-3 px-4 rounded-lg shadow-md text-lg font-semibold text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 transition duration-300 disabled:opacity-50"
+        >
+          {loader ? (
+            <svg
+              className="animate-spin h-5 w-5 mr-2 inline"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          ) : null}
+          {loader ? "Loading..." : "Create Account"}
+        </button>
+      </form>
+
+      {/* Sign In */}
+      <div className="mt-8 text-center">
+        <p className="text-sm text-gray-600">
+          Already have an account?{" "}
+          <a
+            href="/login"
+            className="font-medium text-indigo-600 hover:text-indigo-500 transition"
+          >
+            Sign in
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
   );
 };
 

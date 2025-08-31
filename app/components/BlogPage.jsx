@@ -8,31 +8,14 @@ import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 import { FaGreaterThan } from "react-icons/fa6";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import OtherBanner from "./OtherBanner";
 
 const BlogPage = ({ blogs }) => {
 
 
   return (
     <>
-      <div className="relative text-white">
-        <div className="bg-cover bg-center bg-no-repeat relative bg-[url('/img/commonBanner/butter.webp')] h-[20vh] lg:h-[40vh] flex flex-col justify-center items-center">
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          <div className="relative text-center px-6 md:px-16 xl:px-40">
-            <h1 className="text-2xl md:text-5xl lg:text-6xl uppercase">
-              Blogs
-            </h1>
-
-            <div className="flex items-center justify-center gap-x-2 mt-4 text-sm md:text-base">
-              <Link href="/" className="hover:text-gray-300 transition">
-                Home
-              </Link>
-              <FaGreaterThan className="text-xs opacity-70" />
-              <span className="font-medium">Blogs </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <OtherBanner  text={"Blogs"}/>
 
       <div className="flex flex-wrap gap-10 lg:gap-0 px-0 md:px-12 xl:px-32 my-20">
         <div className="widget-area widget-area-left relative top-0 lg:sticky lg:top-10 h-full w-full lg:w-[28%] px-3 lg:order-1 order-2">

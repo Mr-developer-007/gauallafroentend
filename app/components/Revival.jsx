@@ -89,9 +89,12 @@ export default function Revival() {
                     {/* RIGHT SIDE IMAGE */}
                     {/* <div className="rounded-full p-10"> */}
                     <div
-                        className="mx-auto lg:mx-0 h-[250px] w-[250px] xl:h-[500px] md:h-[170px] md:w-[170px] lg:w-[300px] lg:h-[300px] xl:w-[38%]  bg-contain  "
-                        style={{ backgroundImage: `url(/img4.jpg)` }}
-                    ></div>
+                        className="mx-auto lg:mx-0 h-[250px] w-[250px] xl:h-[550px] md:h-[170px] md:w-[170px] lg:w-[300px] lg:h-[300px] xl:w-[38%]    "
+                       
+                    >
+
+                        <img src="/img4.jpg" alt="" className="w-full h-full" />
+                    </div>
 
                     {/* </div> */}
                 </div>

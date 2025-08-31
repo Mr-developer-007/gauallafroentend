@@ -347,20 +347,20 @@ export default function CheckOut() {
   }, []);
 
   const fetchcartdata = useCallback(async (id) => {
-    try {
-      const response = await axios.get(`${baseurl}/getcartitem/${id}`);
-      const data = await response.data;
-      if (data.success) {
-        setOrder(data.product);
-      } else {
-        setError(data.message || 'Failed to fetch order details');
-      }
-    } catch (error) {
-      console.error("Error fetching cart data:", error);
-      setError('An error occurred while fetching order details. Please try again.');
-    } finally {
-      setOrderLoading(false);
-    }
+    // try {
+    //   const response = await axios.get(`${baseurl}/getcartitem/${id}`);
+    //   const data = await response.data;
+    //   if (data.success) {
+    //     setOrder(data.product);
+    //   } else {
+    //     setError(data.message || 'Failed to fetch order details');
+    //   }
+    // } catch (error) {
+    //   console.error("Error fetching cart data:", error);
+    //   setError('An error occurred while fetching order details. Please try again.');
+    // } finally {
+    //   setOrderLoading(false);
+    // }
   }, []);
 
   const setDefaultAddress = async (address) => {

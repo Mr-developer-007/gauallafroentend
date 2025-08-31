@@ -17,12 +17,10 @@ import { IoIosArrowUp } from "react-icons/io";
 import { FaMinus } from "react-icons/fa";
 
 
-import { ToastContainer, toast } from 'react-toastify';
-
 
 
 import { addCart } from "@/app/store/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SecurePayments from "@/app/components/Payments";
 import FAQSection from "@/app/components/Faq";
 import BenefitsTable from "@/app/components/Benefits";
@@ -30,47 +28,28 @@ import axios from "axios";
 import { baseurl, imageurl } from "@/app/components/utlis/apis";
 import { useRouter } from "next/navigation";
 import Coundown from "./Coundown";
+import Swal from "sweetalert2";
 
 const ProductDetails = ({ slug }) => {
   const route = useRouter()
-const singleProduct= {
-    id: 1,
-    title: "Copper Water Dispenser",
-    slug: "copper-water-dispenser",
-    img: "/img/cowgee.webp",
-    inerimgList: ["/img/cowgee.webp", "/img/cowgee.webp", "/img/cowgee.webp", "/img/cowgee.webp"],
-    label: "BEST SELLERS",
-    category: "brass",
-    heading: "Copper Water Dispenser",
-    price: "6450",
-    rating: "4.5/5",
-    discount: "30",
-    description:
-      "Since ancient times, Copper has been known for its anti-inflammatory, antibacterial and antiviral properties.",
-  }
 
-  const dispatch = useDispatch()
+const { info, isLoading, isError, errorMessage } = useSelector(
+    (state) => state.user
+  );
 
 
  const [loader,setLoader]=useState(true)
-
-  const [qnty, setQnty] = useState(1);
+  const [userLogin,setUserLogin]=useState(false)
   const [activeImg, setActiveImg] = useState(null);
   const [inCart,setIncart] =useState(false)
 
 
-  useEffect(() => {
-    if (singleProduct?.inerimgList) {
-      setActiveImg(singleProduct?.inerimgList?.[0]);
-    }
-  }, [singleProduct]);
+ 
 
 
   const [readMore, setReadMore] = useState(false);
 
 
-
-  const notify = () => toast.success("🎉 Added to cart successfully!");
 
 
   const items = [
@@ -104,26 +83,22 @@ const fetchproduct=async()=>{
     setActiveImg(data.product.images[0])
     
     
+    
 }
    setLoader(false)
 }
 
 
-// const fetchallreadyincart=async(user_id,product_id)=>{
-//   const response= await axios.post(`${baseurl}/alreadyincart`,{user_id,product_id});
-//   const data= await response.data;
-//   if(data.success){
-// setIncart(true)
-//   }
-
-// }
-
 const [AyutramartProduct,setAyutramartProduct]=useState()
+
 const fetchallProduct=async()=>{
   const response= await axios.get(`${baseurl}/getproduct/all`)
   const data = await response.data;
   if(data.success){
+   
     setAyutramartProduct(data.product)
+
+    // 
   }
 
 }
@@ -139,24 +114,45 @@ fetchallProduct()
     
     
 },[])
+useEffect(()=>{
+
+if(!isLoading){
+if(info?.success){
+  setUserLogin(true)
+}
 
 
-const handeladdtocart=async(product_id)=>{
-  setLoader(true)
-  const user_id = localStorage.getItem("userid");
-  if(!user_id){
+}
+
+
+},[isLoading])
+
+
+const handeladdtocart=async(product_id,price)=>{
+
+  if(!userLogin){
 route.push("/login");
   }
 
-const response= await axios.post(`${baseurl}/storecart`,{product_id,user_id:+user_id,quantity:1})
-   
+const response= await axios.post(`${baseurl}/cart/addtocart`,{product_id,price}) 
 const data = await response.data;
-if(data.success){
-  location.reload();
+if(!data.success){
+Swal.fire({
+  title:data.message,
+  icon: "success",
+  draggable: true
+});
+
+
+}else{
+Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Login for Add to Product",
+  // footer: 'Login for Add to Product'
+});
 }
-else{
-  setLoader(false)
-}
+
 }
 const Skeleton = ({ className = "" }) => (
   <div className={`animate-pulse rounded-md bg-gray-200/80 ${className}`} />
@@ -348,7 +344,7 @@ if(loader){
 
                 ) : (
                   <>
-                    <p className="border-b pb-2 text-base text-gray-700 flex gap-2 items-center">
+                    <div className="border-b pb-2 text-base text-gray-700 flex gap-2 items-center">
 <p>
   {productData?.description2
     ? productData.description2.replace(/<[^>]+>/g, "").slice(0, 75) + "..."
@@ -359,7 +355,7 @@ if(loader){
                       >
                         Read More <IoIosArrowUp className="rotate-180" />
                       </span>
-                    </p>
+                    </div>
                   </>
                 )}
 
@@ -402,12 +398,22 @@ if(loader){
                     </label>
 
 
-                    <span
+
+<span
+
+
                           htmlFor="size-1.5L"
-                          className="variant__button-label text-black cursor-pointer border border-gray-300 px-4 py-2 rounded peer-checked:bg-[#62371f] peer-checked:text-white transition"
+                          className={`variant__button-label  cursor-pointer border  px-4 py-2 rounded peer-checked:bg-[#62371f] peer-checked:text-white transition *
+                            
+                             border-green-800 text-green-800 font-semibold
+                            `}
                         >
                           <span>{productData?.unit_quantity}</span>
                         </span>
+
+
+
+                   
                  
                   </div>
 
@@ -438,7 +444,7 @@ if(loader){
                       </button> :
                       <button
                         onClick={() => {
-                         handeladdtocart(productData?.id)
+                         handeladdtocart(productData?.id,productData?.price)
                         }
                         }
                         className="px-2  p-2 lg:px-4 text-center bg-[#62371f] text-white text-xs lg:text-sm rounded-lg hover:bg-[#87c243]"
@@ -456,7 +462,7 @@ if(loader){
                   </div>
 
 
-                  {/* <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
+                  <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
                     {items?.map((item, index) => (
                       <div key={index} className="flex flex-col items-center text-center max-w-[120px]">
                         <div className="mb-2">
@@ -465,7 +471,7 @@ if(loader){
                         <p className="text-sm text-gray-800 font-medium">{item.text}</p>
                       </div>
                     ))}
-                  </div> */}
+                  </div>
 
                   <SecurePayments />
 

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { FaLeaf, FaFlask, FaRecycle, FaSeedling } from "react-icons/fa";
+import OtherBanner from "./OtherBanner";
 
 const features = [
   {
@@ -30,8 +31,11 @@ const features = [
 ];
 
 const AboutSection = ({need=true}) => {
-  return (
+  return (<>
+   {need &&   <OtherBanner text="About Us" /> }
+ 
     <section className="py-16 px-5 md:px-16 xl:px-32 bg-white">
+
       <div className="flex flex-col lg:flex-row items-center gap-10">
         {/* Left Image */}
         <div className="w-full lg:w-1/3 relative flex justify-center">
@@ -61,7 +65,7 @@ const AboutSection = ({need=true}) => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Experience Dairy in Its Purest Form
           </h2>
-          <p className="text-gray-600 mb-8">
+          <div className="text-gray-600 mb-8">
             Gaualla sources A2 desi cow milk, which is fresh and comes from
             ethically raised Indian cows. We focus on purity, nutrition, and
             tradition while strictly avoiding chemicals, hormones, and
@@ -100,12 +104,13 @@ const AboutSection = ({need=true}) => {
               <li>400 Healthy Desi Cows</li>
             </ul>
             </> }
-          </p>
+          </div>
 
         
         </div>
       </div>
     </section>
+     </>
   );
 };
 

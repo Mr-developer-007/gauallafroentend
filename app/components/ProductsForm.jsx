@@ -17,7 +17,6 @@ export default function ProductsForm() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Data Submitted:", formData);
       };
 
       const serviseList = [

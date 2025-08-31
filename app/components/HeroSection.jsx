@@ -44,7 +44,7 @@ useEffect(()=>{
       >
         {banners?.map((elm, index) => (
           <SwiperSlide key={index}>
-            <div className="h-[250px] md:h-[450px] lg:h-[600px] w-full relative mx-auto">
+            <div className="h-[200px] md:h-[450px] lg:h-[600px] w-full relative mx-auto">
             
               <img
                 src={`${imageurl}/${elm.image}`}

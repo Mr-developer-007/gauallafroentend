@@ -5,7 +5,6 @@ import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa6";
 import { IoMdCart, IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
 import { addWish, removeWish } from "../store/wishListSlice";
 import { useSelector } from "react-redux";
 import { imageurl } from "./utlis/apis";
@@ -43,10 +42,8 @@ export default function ProductAyurvedCard({ product }) {
   const handleWishListToogle = (product) => {
     if (isWishList(product.id)) {
       dispatch(removeWish(product));
-      toast.success("🎉 Removed from wishlist successfully!");
     } else {
       dispatch(addWish(product));
-      toast.success("🎉 Added to wishlist successfully!");
     }
   };
 
@@ -190,12 +187,12 @@ export default function ProductAyurvedCard({ product }) {
           <div className="flex justify-between">
             <p className="font-semibold text-sm lg:text-lg text-gray-800">{name}</p>
           </div>
-          <p className="text-gray-600 text-base leading-relaxed hidden lg:block"   >
-           <p   dangerouslySetInnerHTML={{
+          <div className="text-gray-600 text-base leading-relaxed hidden lg:block"   >
+           <div   dangerouslySetInnerHTML={{
     __html: isDescriptionExpanded
       ? description
       : `${description?.slice(0, 50)}...`,
-  }}></p>
+  }}></div>
             {description?.length > 50 && (
               <button 
                 className="text-blue-500 ml-1"
@@ -204,7 +201,7 @@ export default function ProductAyurvedCard({ product }) {
                 {isDescriptionExpanded ? "Show less" : "Read more"}
               </button>
             )}
-          </p>
+          </div>
 
           <hr className="text-gray-300" />
 
@@ -234,19 +231,16 @@ export default function ProductAyurvedCard({ product }) {
               {added ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
             </button>
 
-            <Link
-              href={`/product/${slug}`}
+            <p
               className="font-semibold text-xs lg:text:base text-white w-full py-2 text-center flex items-center justify-center rounded-md border border-gray-200 bg-[#62371f] hover:bg-[#69a14fe7] transition duration-300"
             >
               <IoMdCart className="mr-1" />
               <span>View product</span>
-            </Link>
+            </p>
           </div>
         </div>
 
-        <div className="absolute">
-          <ToastContainer />
-        </div>
+       
       </Link>
 
       {quickView && <QuickView />}

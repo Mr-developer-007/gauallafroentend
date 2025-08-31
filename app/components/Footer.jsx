@@ -128,7 +128,7 @@ const Footer = () => {
                   <Link href="/contact-us">Contact Us</Link>
                 </li>
                 <li className="hover:text-gray-800">
-                  <Link href="/all-products">Product</Link>
+                  <Link href="/product/?name=all">Product</Link>
                 </li>
               </ul>
             </div>

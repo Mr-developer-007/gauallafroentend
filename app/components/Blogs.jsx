@@ -6,7 +6,7 @@ import { FaComments } from "react-icons/fa6";
 export default function LatestBlog() {
   const blogData1 = [
     {
-      image: "/img/blog.webp",
+      image: "/img1.jpg",
       title: "The Healing Power of Brass in Your Kitchen",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
@@ -15,7 +15,7 @@ export default function LatestBlog() {
         "Discover why ancient Ayurveda recommends brass utensils and how they can naturally boost your health, digestion, and immunity.",
     },
     {
-      image: "/img/blog.webp",
+      image: "/img2.jpg",
       title: "From Artisan Hands to Your Home",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
@@ -27,7 +27,7 @@ export default function LatestBlog() {
 
   const blogData2 = [
     {
-      image: "/img/blog.webp",
+      image: "/img3.jpg",
       title: "Sustainability Through Tradition",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
@@ -36,7 +36,7 @@ export default function LatestBlog() {
         "Learn how switching to brass and copper cookware is not just good for your health—but also great for the planet.",
     },
     {
-      image: "/img/blog.webp",
+      image: "/img4.jpg",
       title: "Caring for Your Brass & Copper Utensils",
       shape: "/img/blogs/shape.webp",
       author: "By admin",

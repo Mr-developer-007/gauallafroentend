@@ -19,7 +19,6 @@ export default function SignUp() {
       alert("Passwords do not match!");
       return;
     }
-    console.log("User Data:", form);
   };
 
   return (

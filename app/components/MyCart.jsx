@@ -25,24 +25,24 @@ export default function MyCart({ cart, setCart }) {
   const dispatch = useDispatch();
 
   const fetchCart = async (userId) => {
-    try {
-      setLoading(true);
-      const response = await axios.get(`${baseurl}/getcart/${userId}`);
-      const { data, total } = response.data;
+    // try {
+    //   setLoading(true);
+    //   const response = await axios.get(`${baseurl}/getcart/${userId}`);
+    //   const { data, total } = response.data;
       
-      // Update local state
-      setCartData({
-        data,
-        total
-      });
+    //   // Update local state
+    //   setCartData({
+    //     data,
+    //     total
+    //   });
       
-      // Update Redux store if needed
-      dispatch(setCartItems(data));
-    } catch (error) {
-      console.error("Error fetching cart:", error);
-    } finally {
-      setLoading(false);
-    }
+    //   // Update Redux store if needed
+    //   dispatch(setCartItems(data));
+    // } catch (error) {
+    //   console.error("Error fetching cart:", error);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
 

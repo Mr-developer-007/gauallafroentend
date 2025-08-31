@@ -6,20 +6,23 @@ import { BsCartPlus } from "react-icons/bs";
 import Link from "next/link";
 import { HiMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
-import { IoIosArrowDown } from "react-icons/io";
 import MyCart from "./MyCart";
-import AyutramartProduct from "../AyutramartData";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
-import { FaAngleRight, FaMinus, FaPlus } from "react-icons/fa6";
 import axios from "axios";
 import { baseurl, imageurl } from "./utlis/apis";
+import { GetUser } from "../store/userSlice";
+
+
+
+
 
 export default function MyNav() {
   const [sideBar, setSideBar] = useState(false);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
-
+  const dispatch = useDispatch()
+ const { info, isLoading, isError, errorMessage } = useSelector(
+    (state) => state.user
+  );
   const [productSearch, setProductSearch] = useState("");
 
 
@@ -57,25 +60,21 @@ export default function MyNav() {
   ]
 
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const [userLogin,setUserLogin]=useState(false)
+
+  
+useEffect(()=>{
+
+if(!isLoading){
+if(info?.success){
+  setUserLogin(true)
+}
 
 
-  const categories = [
-    {
-      title: "Shop by Metals",
-      img: "/img/copper-wire.png",
-      submenu: [
-        { name: "All", link: "/all-products" },
-        { name: "Brass", link: "/category/brass" },
-        { name: "Copper", link: "/category/copper" },
-        { name: "Kansa", link: "/category/kansa" },
-      ],
-    },
- 
-  ];
-  const [activeIndex, setActiveIndex] = useState(null);
+}
 
 
-
+},[isLoading])
 
 
   const SideBarComp = () => {
@@ -118,9 +117,7 @@ export default function MyNav() {
     );
   };
 
-  const searchProductFilter = AyutramartProduct.filter((item) =>
-    item.heading.toLowerCase().includes(productSearch.toLowerCase())
-  );
+ 
 
   const cartItems = useSelector((state) => state.cart.cartItem)
 
@@ -154,8 +151,10 @@ return ()=> clearTimeout(inter)
 
 
 
+useEffect(()=>{
+dispatch(GetUser())
 
-
+},[])
 
 
 
@@ -260,13 +259,13 @@ return ()=> clearTimeout(inter)
         </ul>
 
         <ul className="flex items-center gap-x-2 lg:gap-x-6">
-          <li className="hidden md:block">
+       {  !userLogin ?<li className="hidden md:block">
             <Link href={"/signup"} className="w-8 h-8 flex justify-center items-center rounded-full border border-gray-400 hover:bg-[#F3F4F7] cursor-pointer">
               <RiUserLine className="text-gray-600" />
             </Link>
           </li>
 
-          <li className="">
+          : <li className="">
             <button
               onClick={() => setCart(true)}
               className="w-8 h-8 relative flex justify-center items-center rounded-full  bg-[#b2e18c30] border-[#62371f]  cursor-pointer"
@@ -276,7 +275,7 @@ return ()=> clearTimeout(inter)
                 {cartLengthTotal}
               </span>
             </button>
-          </li>
+          </li> }
           <li className="xl:hidden">
             <button onClick={() => setSideBar(!sideBar)} className="text-xl">
               <HiMenu />
