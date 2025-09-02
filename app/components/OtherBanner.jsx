@@ -9,12 +9,12 @@ const OtherBanner = ({text}) => {
     <div className="relative w-full text-white">
       {/* Background image */}
       <img
-        src="/img5.jpg"
+        src="/range.jpg"
         alt="Header Background"
         className="absolute inset-0 w-full h-full object-cover -z-20"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50 -z-10"></div>
 
       {/* Content */}
       <div className="relative h-[25vh] md:h-[40vh] lg:h-[55vh] flex flex-col justify-center items-center text-center px-6 md:px-12 lg:px-20">

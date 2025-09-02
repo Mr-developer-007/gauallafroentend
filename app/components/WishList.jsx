@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // export const {addWish,removeWish}=WishListSlice.actions;
 import { clearWishlist, removeWish } from '../store/wishListSlice';
+import OtherBanner from './OtherBanner';
 
 
 export default function WishList() {
@@ -20,24 +21,7 @@ export default function WishList() {
   return (
     <>
       <div className="relative text-white">
-        <div className="bg-cover bg-center bg-no-repeat relative bg-[url('/img/commonBanner/butter.webp')] h-[20vh] lg:h-[40vh] flex flex-col justify-center items-center">
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          <div className="relative text-center px-6 md:px-16 xl:px-40">
-            <h1 className="text-2xl md:text-5xl lg:text-6xl uppercase">
-              wishlist
-            </h1>
-
-            <div className="flex items-center justify-center gap-x-2 mt-4 text-sm md:text-base">
-              <Link href="/" className="hover:text-gray-300 transition">
-                Home
-              </Link>
-              <FaGreaterThan className="text-xs opacity-70" />
-              <span className="font-medium">Wishlist </span>
-              {wishList.length}
-            </div>
-          </div>
-        </div>
+      <OtherBanner  text="Wishlist"/>
       </div>
       <div className=" p-5 md:px-12 xl:px-32 bg-gray-50">
 

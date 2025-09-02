@@ -11,8 +11,39 @@ import { MdOutlineLocalPhone } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import BottomfixLinks from "./BottomfixLinks";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseurl } from "./utlis/apis";
 
 const Footer = () => {
+
+
+
+const [categoryData,setCategorydata]=useState()
+
+
+
+
+  const fetchcategory=async()=>{
+    const response= await axios.get(`${baseurl}/category`)
+    const data= await response.data;
+    if(data.success){
+setCategorydata(data.category)
+    }
+
+  }
+
+  useEffect(() => {
+   fetchcategory()  
+  }, []);
+
+
+
+
+
+
+
+
   const payments = [
     {
       img: "/img/footer/1.png",
@@ -76,9 +107,7 @@ const Footer = () => {
           
               </Link>
               <p className="mt-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
-                Experience the essence of natural wellness with Indian Brass Utensils. Our
-                products are crafted with care, free from harmful chemicals, and
-                designed to promote holistic health.
+               Experience the essence of natural wellness with Gaualla Milk Dairy. Our dairy products are pure, chemical-free, and crafted with care to promote holistic health and nourishment.
               </p>
               <div className="flex items-center text-xl gap-x-2">
                 <a
@@ -113,7 +142,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-2 hidden lg:block">
-              <h2 className="text-xl">Quick Links</h2>
+              <h2 className="text-xl text-gray-800">Quick Links</h2>
               <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
                 <li className="hover:text-gray-800">
                   <Link href="/">Home</Link>
@@ -134,15 +163,15 @@ const Footer = () => {
             </div>
 
             <div className="space-y-2 hidden lg:block">
-              <h2 className="text-xl  ">Our Products</h2>
+              <h2 className="text-xl text-gray-800 ">Our Products</h2>
 
-              <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
-                {productLink.map((elm, index) => (
-                  <li key={index} className="hover:text-gray-800">
+              <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg  ">
+                {categoryData?.slice(0,5).map((elm, index) => (
+                  <li key={index} className="hover:text-gray-800  capitalize">
                     <Link
-                      href={elm.link}
+                      href={`/product?name=${elm.name}`}
                     >
-                      {elm.heading}
+                      {elm.name}
                     </Link>
                   </li>
                 ))}
@@ -152,9 +181,9 @@ const Footer = () => {
 
             <div className="grid grid-cols-2 lg:hidden pl-4 ">
               <div className="space-y-2 ">
-                <h2 className="text-xl ">Our Links</h2>
+                <h2 className="text-xl text-gray-800 ">Our Links</h2>
                 <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
-                  <li className="hover:text-gray-800">
+                  <li className="hover:text-gray-800 ">
                     <Link href="/">Home</Link>
                   </li>
                   <li className="hover:text-gray-800">
@@ -173,18 +202,16 @@ const Footer = () => {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-xl  ">Our Prodcuts</h2>
+                <h2 className="text-xl text-gray-800 ">Our Prodcuts</h2>
 
-                <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
-                  <li className="hover:text-gray-800">
-                    <Link href="/">Gaualla Bilona Gee</Link>
-                  </li>
-                  <li className="hover:text-gray-800">
-                    <Link href="/">Gaualla A2 Desi Ghee</Link>
-                  </li>
-                  <li className="hover:text-gray-800">
-                    <Link href="/">Gaualla A2 Panner</Link>
-                  </li>
+                <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg h-15 overflow-auto">
+{categoryData?.slice(0,5).map((item,index)=>
+                  <li className="hover:text-gray-800" key={index}>
+                    <Link href={`/product?name=${item.name}`} className="capitalize">{item.name}</Link>
+                  </li>)
+
+}
+
                
 
                 </ul>
@@ -192,7 +219,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-2 lg:w-[35%] xl:w-[30%] flex flex-col items-start ">
-              <h2 className="text-xl  ">Our Address</h2>
+              <h2 className="text-xl text-gray-800 ">Our Address</h2>
 
               {/* <h6 className="">Head Office</h6> */}
               <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
