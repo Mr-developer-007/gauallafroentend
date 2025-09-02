@@ -204,7 +204,7 @@ setCategorydata(data.category)
               <div className="space-y-2">
                 <h2 className="text-xl text-gray-800 ">Our Prodcuts</h2>
 
-                <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg h-15 overflow-auto">
+                <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg ">
 {categoryData?.slice(0,5).map((item,index)=>
                   <li className="hover:text-gray-800" key={index}>
                     <Link href={`/product?name=${item.name}`} className="capitalize">{item.name}</Link>
