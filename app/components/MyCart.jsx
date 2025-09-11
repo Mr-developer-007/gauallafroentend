@@ -18,63 +18,63 @@ import { useRouter } from "next/navigation";
 export default function MyCart({ cart, setCart }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [cartData, setCartData] = useState({
-    data: [],
-    total: 0
-  });
-  const dispatch = useDispatch();
+  const [cartData, setCartData] = useState();
+  const [subTotal,setsubTotal]=useState()
 
-  const fetchCart = async (userId) => {
-    // try {
-    //   setLoading(true);
-    //   const response = await axios.get(`${baseurl}/getcart/${userId}`);
-    //   const { data, total } = response.data;
+  const fetchCart = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${baseurl}/cart/cartallcart`);
+      const  data  = await  response.data;
+      if(data.success){
+        setCartData(data.carts)
+const totalamount = data.carts.reduce((acc, item) => acc + parseInt(item.total_price), 0);
+        setsubTotal(totalamount)
+      }else{
+        setCartData("")
+      }
       
-    //   // Update local state
-    //   setCartData({
-    //     data,
-    //     total
-    //   });
+      // setCartData({
+      //   data,
+      //   total
+      // });
       
-    //   // Update Redux store if needed
-    //   dispatch(setCartItems(data));
-    // } catch (error) {
-    //   console.error("Error fetching cart:", error);
-    // } finally {
-    //   setLoading(false);
-    // }
+      // Update Redux store if needed
+      // dispatch(setCartItems(data));
+    } catch (error) {
+      console.error("Error fetching cart:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
 
   const removeItem = async (itemId) => {
     try {
-      await axios.delete(`${baseurl}/deletecart/${itemId}`);
-      const userId = localStorage.getItem("userid");
-      fetchCart(userId);
+  const response =       await axios.delete(`${baseurl}/cart/deletecart/${itemId}`);
+     const data= await response.data;
+     if(data.success){
+      fetchCart();
+     }
     } catch (error) {
       console.error("Error removing item:", error);
     }
   };
 
   useEffect(() => {
-    const userId = localStorage.getItem("userid");
-    if (userId) {
-      fetchCart(userId);
-    } else {
-      // router.push("/login");
-    }
+  
+      fetchCart();
+    
   }, []);
 
   const handelcartquentity=async(bool,id)=>{
-const response = await axios.put(`${baseurl}/updatecart/${id}`,{increment:bool});
+
+const response = await axios.put(`${baseurl}/cart/updatecart/${id}`,{increment:bool});
 const data= await response.data;
 if(data.success){
-   const userId = localStorage.getItem("userid");
-    if (userId) {
-      fetchCart(userId);
-    } else {
-      router.push("/login");
-    }
+   
+      fetchCart();
+   
 }
 
   }
@@ -91,7 +91,7 @@ if(data.success){
     );
   }
 
-  if (cartData.data.length < 1) {
+  if (!cartData) {
     return (
       <div className={`${cart ? "translate-x-0" : "translate-x-full"} duration-400 transition-transform fixed inset-0 bg-black/50 z-[9999] flex justify-end`}>
         <div className="bg-white overflow-y-auto h-full w-full md:w-[60%] lg:w-[50%] xl:w-[30%] ">
@@ -120,6 +120,10 @@ if(data.success){
     );
   }
 
+
+
+
+
   return (
     <div className={`${cart ? "translate-x-0" : "translate-x-full"} duration-400 transition-transform fixed inset-0 bg-black/50 z-[9999] flex justify-end`}>
       <div className="bg-white overflow-y-auto h-full w-full md:w-[60%] lg:w-[50%] xl:w-[30%] ">
@@ -141,38 +145,38 @@ if(data.success){
           Indian Brass Utensils Coins on this order
         </div>
 
-        {cartData?.data.map((item) => (
-          <div key={item.id} className="content-section px-2">
+        {cartData?.map((item,index) => (
+          <div key={index} className="content-section px-2">
             <div className="mt-4 lg:mt-6 border border-gray-300 bg-[#ebede57c] p-4 rounded-lg shadow-sm flex flex-row md:flex-row items-start md:items-center justify-between gap-4">
               <div className="">
                 <img
-                  src={`${imageurl}/${item.product.images[0]}` || "/img/product/default-product.jpg"}
-                  alt={item.product.name}
+                  src={`${imageurl}/${ JSON.parse(item?.images)[0]}` || "/img/product/default-product.jpg"}
+                  alt={item?.name}
                   className="h-20 w-20 md:h-24 md:w-24 rounded object-cover"
                 />
               </div>
 
               <div className="flex-1">
                 <h5 className="text-lg md:text-xl font-semibold text-gray-800">
-                  {item.product.name}
+                  {item?.name}
                 </h5>
                 <p className="text-sm text-gray-600 mt-1">
-                  {item.product.description.substring(0, 50)}...
+                  {/* {item.product.description.substring(0, 50)}... */}
                 </p>
                 <div className="flex justify-between mt-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-xl font-bold text-green-600">₹{item.price}</span>
+                    <span className="text-xl font-bold text-green-600">₹{item?.total_price}</span>
                   </div>
                   <div className="flex items-center gap-3 bg-white px-2 rounded-2xl">
                     <button 
-                      onClick={() => handelcartquentity(false,item.id)}
+                      onClick={() => handelcartquentity(false,item.cart_id)}
                       className="rounded-2xl bg-[#e6f3eb76] text-gray-600 hover:text-green-500 transition border border-gray-400 p-1"
                     >
                       <FaMinus className="text-xs" />
                     </button>
-                    <span className="text-lg font-medium">{item.quantity}</span>
+                    <span className="text-lg font-medium">{item?.quantity}</span>
                     <button 
-                      onClick={() => handelcartquentity(true,item.id)}
+                      onClick={() => handelcartquentity(true,item.cart_id)}
                       className="rounded-2xl bg-[#e6f3eb76] text-gray-600 hover:text-green-500 transition border border-gray-400 p-1"
                     >
                       <FaPlus className="text-xs" />
@@ -181,13 +185,13 @@ if(data.success){
                 </div>
                 <div className=" flex my-2 justify-between">
                 <button 
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => removeItem(item.cart_id)}
                   className="mt-2 text-red-500 text-sm flex items-center cursor-pointer"
                 >
                   <RxCross2 className="mr-1" /> Remove
                 </button>
                 <button onClick={()=>{
-                         localStorage.setItem("buyitem",item?.id),
+                         localStorage.setItem("buyitem",item?.cart_id),
                         router.push("/checkout"),setCart(false)}} className="p-1 cursor-pointer  px-3 font-semibold rounded-2xl bg-green-300 text-green-700">Buy Now</button>
                 </div>
               </div>
@@ -291,7 +295,7 @@ if(data.success){
               Sub Total
             </h5>
             <h6 className="font-bold text-lg md:text-xl text-gray-900">
-              ₹{cartData.total}
+              ₹{subTotal}
             </h6>
           </div>
 

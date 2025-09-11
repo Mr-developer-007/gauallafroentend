@@ -214,11 +214,7 @@ dispatch(GetUser())
                     key={index}
                     className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
                   >
-                    <Link href={`/product/${item.name
-                      .toLowerCase()
-                      .replace(/,/g, "")
-                      .split(" ")
-                      .join("-")}`} onClick={() => productSearch("")} className="flex justify-between items-center"> <span className="text-[19px]">{item.name }</span>
+                    <Link href={`/product/${item.slug}`} onClick={() => productSearch("")} className="flex justify-between items-center"> <span className="text-[19px]">{item.name }</span>
                       
                       <img src={`${imageurl}/${ (JSON.parse(item?.images))[0]}`} alt={item.name } className="h-15 w-15 rounded-full" />
                       
@@ -271,9 +267,7 @@ dispatch(GetUser())
               className="w-8 h-8 relative flex justify-center items-center rounded-full  bg-[#b2e18c30] border-[#62371f]  cursor-pointer"
             >
               <BsCartPlus className="text-[#62371f]" />
-              <span className="bg-[#62371f] absolute -right-1 -top-1 rounded-full w-4 h-4 flex items-center justify-center text-white">
-                {cartLengthTotal}
-              </span>
+             
             </button>
           </li> }
           <li className="xl:hidden">

@@ -32,26 +32,14 @@ import Swal from "sweetalert2";
 
 const ProductDetails = ({ slug }) => {
   const route = useRouter()
-
-const { info, isLoading, isError, errorMessage } = useSelector(
+  const { info, isLoading, isError, errorMessage } = useSelector(
     (state) => state.user
   );
-
-
- const [loader,setLoader]=useState(true)
+   const [loader,setLoader]=useState(true)
   const [userLogin,setUserLogin]=useState(false)
   const [activeImg, setActiveImg] = useState(null);
   const [inCart,setIncart] =useState(false)
-
-
- 
-
-
   const [readMore, setReadMore] = useState(false);
-
-
-
-
   const items = [
     {
       img: "/img/truck.svg",
@@ -70,25 +58,7 @@ const { info, isLoading, isError, errorMessage } = useSelector(
       text: "life time warranty",
     },
   ];
-
-
 const [productData,setProductData]=useState()
-
-const fetchproduct=async()=>{
-  setLoader(true)
-  const response = await axios.get(`${baseurl}/getproduct/product/${slug}`)
-  const data= await response.data;
-  if(data.success){
-    setProductData(data.product)
-    setActiveImg(data.product.images[0])
-    
-    
-    
-}
-   setLoader(false)
-}
-
-
 const [AyutramartProduct,setAyutramartProduct]=useState()
 
 const fetchallProduct=async()=>{
@@ -98,11 +68,62 @@ const fetchallProduct=async()=>{
    
     setAyutramartProduct(data.product)
 
-    // 
+ 
   }
 
 }
 
+
+const fetchproduct=async()=>{
+  setLoader(true)
+  const response = await axios.get(`${baseurl}/getproduct/product/${slug}`)
+  const data= await response.data;
+  if(data.success){
+    setProductData(data.product)
+    setActiveImg(data.product.images[0])
+     fetchAllreadyincart(data.product?.id)
+
+    
+    
+}
+   setLoader(false)
+}
+const fetchAllreadyincart=async(productid)=>{
+  const response = await axios.get(`${baseurl}/cart/cart/${productid}`)
+  const data = response.data;
+  if(data.success){
+setIncart(true)
+  }
+
+}
+
+const handeladdtocart=async(product_id,price)=>{
+
+  if(!userLogin){
+route.push("/login");
+  }
+
+const response= await axios.post(`${baseurl}/cart/addtocart`,{product_id,price}) 
+const data = await response.data;
+if(data.success){
+Swal.fire({
+  title:data.message,
+  icon: "success",
+  draggable: true
+});
+setIncart(true)
+location.reload()
+
+}else{
+Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Login for Add to Product",
+
+});
+}
+
+}
 
 
 useEffect(()=>{
@@ -114,11 +135,15 @@ fetchallProduct()
     
     
 },[])
+
+
+
 useEffect(()=>{
 
 if(!isLoading){
 if(info?.success){
   setUserLogin(true)
+
 }
 
 
@@ -128,32 +153,20 @@ if(info?.success){
 },[isLoading])
 
 
-const handeladdtocart=async(product_id,price)=>{
-
-  if(!userLogin){
-route.push("/login");
-  }
-
-const response= await axios.post(`${baseurl}/cart/addtocart`,{product_id,price}) 
-const data = await response.data;
-if(!data.success){
-Swal.fire({
-  title:data.message,
-  icon: "success",
-  draggable: true
-});
 
 
-}else{
-Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Login for Add to Product",
-  // footer: 'Login for Add to Product'
-});
-}
 
-}
+
+
+
+
+
+
+
+
+
+
+
 const Skeleton = ({ className = "" }) => (
   <div className={`animate-pulse rounded-md bg-gray-200/80 ${className}`} />
 );
@@ -432,7 +445,7 @@ if(loader){
                         <FaPlus />
                       </button>
                     </div> */}
-                    {/* <div className="flex gap-3 text-xl">
+                    <div className="flex gap-3 text-xl">
                      {inCart? <button
                         // onClick={() => {
                         //  handeladdtocart(productData?.id)
@@ -457,8 +470,8 @@ if(loader){
                       <button  className="  p-2 lg:px-4 border border-gray-400 text-xs lg:text-sm  rounded-lg hover:bg-[#073439] hover:text-white">
                         BUY NOW
                       </button>
-                    </div> */}
-                    <Coundown />
+                    </div>
+                    {/* <Coundown /> */}
                   </div>
 
 

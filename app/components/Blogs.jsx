@@ -61,7 +61,7 @@ export default function LatestBlog() {
         {blogData1.map((item, index) => (
           <div key={index} className="contents">
             <div className="">
-              <img src={item.image} alt="" className="h-full w-full" />
+              <img src={item.image} alt="" className=" object-cover w-screen md:h-full md:w-full" />
             </div>
             <div className="p-4 lg:p-6 space-y-4 flex flex-col items-center text-center">
 

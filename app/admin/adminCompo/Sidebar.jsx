@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaHome, FaShoppingCart, FaUser, FaBars } from "react-icons/fa";
+import { FaHome, FaShoppingCart, FaUser, FaBars ,FaBlogger} from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import { PiFlagBannerFill } from "react-icons/pi";
 
@@ -50,6 +50,12 @@ export default function Sidebar() {
             <PiFlagBannerFill />
             {open && <Link href="/admin/bannners">Bannners</Link>}
           </li>
+
+<li className="flex items-center gap-x-4 p-2 hover:bg-gray-700 rounded-md text-white">
+            <FaBlogger />
+            {open && <Link href="/admin/blogs">Blog</Link>}
+          </li>
+
           <li className="flex items-center gap-x-4 p-2 hover:bg-gray-700 rounded-md text-white">
             <FaUser />
             {open && <Link href="/admin/users">Users</Link>}
