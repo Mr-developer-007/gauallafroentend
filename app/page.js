@@ -13,7 +13,7 @@ import ProductAyurved from "./components/ProductAyurved";
 import AboutSection from "./components/Aboutus";
 
 export const metadata = {
-    title: " Gaualla Purity At It's Best",
+  title: " Gaualla Purity At It's Best",
   description: "",
 };
 
@@ -22,10 +22,19 @@ export default function page() {
     <>
       <HeroSection />
       <CategoriesSlider />
-      <AboutSection  need={false}/>
+      <AboutSection need={false} />
+
+
+      <div className="">
+        <img
+          src="/range.jpg"
+          alt="Header Background"
+          className="w-full h-full object-fill "
+        />
+      </div>
       <ProductAyurved />
       <OfferPorductValid />
-        <Testmonails />
+      <Testmonails />
       <Revival />
       <Blogs />
       <MarqueeText />

@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 
 import Description from "./Description ";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination ,Autoplay} from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -35,122 +35,122 @@ const ProductDetails = ({ slug }) => {
   const { info, isLoading, isError, errorMessage } = useSelector(
     (state) => state.user
   );
-   const [loader,setLoader]=useState(true)
-  const [userLogin,setUserLogin]=useState(false)
+  const [loader, setLoader] = useState(true)
+  const [userLogin, setUserLogin] = useState(false)
   const [activeImg, setActiveImg] = useState(null);
-  const [inCart,setIncart] =useState(false)
+  const [inCart, setIncart] = useState(false)
   const [readMore, setReadMore] = useState(false);
-  const items = [
-    {
-      img: "/img/truck.svg",
-      text: "Free shipping",
-    },
-    {
-      img: "/img/delivery.svg",
-      text: "Delivery ",
-    },
-    {
-      img: "/img/exchange.svg",
-      text: "7-days exchange",
-    },
-    {
-      img: "/img/life.svg",
-      text: "life time warranty",
-    },
-  ];
-const [productData,setProductData]=useState()
-const [AyutramartProduct,setAyutramartProduct]=useState()
+  // const items = [
+  //   {
+  //     img: "/img/truck.svg",
+  //     text: "Free shipping",
+  //   },
+  //   {
+  //     img: "/img/delivery.svg",
+  //     text: "Delivery ",
+  //   },
+  //   {
+  //     img: "/img/exchange.svg",
+  //     text: "7-days exchange",
+  //   },
+  //   {
+  //     img: "/img/life.svg",
+  //     text: "life time warranty",
+  //   },
+  // ];
+  const [productData, setProductData] = useState()
+  const [AyutramartProduct, setAyutramartProduct] = useState()
 
-const fetchallProduct=async()=>{
-  const response= await axios.get(`${baseurl}/getproduct/all`)
-  const data = await response.data;
-  if(data.success){
-   
-    setAyutramartProduct(data.product)
+  const fetchallProduct = async () => {
+    const response = await axios.get(`${baseurl}/getproduct/all`)
+    const data = await response.data;
+    if (data.success) {
 
- 
+      setAyutramartProduct(data.product)
+
+
+    }
+
   }
 
-}
+
+  const fetchproduct = async () => {
+    setLoader(true)
+    const response = await axios.get(`${baseurl}/getproduct/product/${slug}`)
+    const data = await response.data;
+    if (data.success) {
+      setProductData(data.product)
+      setActiveImg(data.product.images[0])
+      fetchAllreadyincart(data.product?.id)
 
 
-const fetchproduct=async()=>{
-  setLoader(true)
-  const response = await axios.get(`${baseurl}/getproduct/product/${slug}`)
-  const data= await response.data;
-  if(data.success){
-    setProductData(data.product)
-    setActiveImg(data.product.images[0])
-     fetchAllreadyincart(data.product?.id)
 
-    
-    
-}
-   setLoader(false)
-}
-const fetchAllreadyincart=async(productid)=>{
-  const response = await axios.get(`${baseurl}/cart/cart/${productid}`)
-  const data = response.data;
-  if(data.success){
-setIncart(true)
+    }
+    setLoader(false)
+  }
+  const fetchAllreadyincart = async (productid) => {
+    const response = await axios.get(`${baseurl}/cart/cart/${productid}`)
+    const data = response.data;
+    if (data.success) {
+      setIncart(true)
+    }
+
   }
 
-}
+  const handeladdtocart = async (product_id, price) => {
 
-const handeladdtocart=async(product_id,price)=>{
+    if (!userLogin) {
+      route.push("/login");
+    }
 
-  if(!userLogin){
-route.push("/login");
+    const response = await axios.post(`${baseurl}/cart/addtocart`, { product_id, price })
+    const data = await response.data;
+    if (data.success) {
+      Swal.fire({
+        title: data.message,
+        icon: "success",
+        draggable: true
+      });
+      setIncart(true)
+      location.reload()
+
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Login for Add to Product",
+
+      });
+    }
+
   }
 
-const response= await axios.post(`${baseurl}/cart/addtocart`,{product_id,price}) 
-const data = await response.data;
-if(data.success){
-Swal.fire({
-  title:data.message,
-  icon: "success",
-  draggable: true
-});
-setIncart(true)
-location.reload()
 
-}else{
-Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Login for Add to Product",
-
-});
-}
-
-}
-
-
-useEffect(()=>{
-
-
-    
-      fetchproduct()
-fetchallProduct()
-    
-    
-},[])
+  useEffect(() => {
 
 
 
-useEffect(()=>{
-
-if(!isLoading){
-if(info?.success){
-  setUserLogin(true)
-
-}
+    fetchproduct()
+    fetchallProduct()
 
 
-}
+  }, [])
 
 
-},[isLoading])
+
+  useEffect(() => {
+
+    if (!isLoading) {
+      if (info?.success) {
+        setUserLogin(true)
+
+      }
+
+
+    }
+
+
+  }, [isLoading])
 
 
 
@@ -167,13 +167,13 @@ if(info?.success){
 
 
 
-const Skeleton = ({ className = "" }) => (
-  <div className={`animate-pulse rounded-md bg-gray-200/80 ${className}`} />
-);
+  const Skeleton = ({ className = "" }) => (
+    <div className={`animate-pulse rounded-md bg-gray-200/80 ${className}`} />
+  );
 
 
-if(loader){
-  return( <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 lg:px-8">
+  if (loader) {
+    return (<div className="mx-auto max-w-7xl px-4 py-8 md:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[84px_minmax(0,1fr)] lg:grid-cols-[96px_minmax(0,1fr)_minmax(320px,400px)]">
         {/* Left: vertical thumbnails */}
         <div className="hidden md:flex md:flex-col md:gap-4">
@@ -271,12 +271,12 @@ if(loader){
         <Skeleton className="h-20 w-20" />
       </div>
     </div>)
-}
+  }
 
 
   return (
     <>
-   <div className="bg-[#f3f1ec76]">
+      <div className="bg-[#f3f1ec76]">
         <div className="container mx-auto overflow-hidden">
           <div className=" w-full py-10 lg:py-16 px-5 md:px-12 xl:px-32 flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start  gap-8 ">
             <div className="leftside flex flex-col-reverse xl:flex-row gap-5 items-center justify-center relative lg:sticky top-0 lg:top-20 h-full">
@@ -296,25 +296,25 @@ if(loader){
 
               <div className="mainimage max-w-md mx-auto relative ">
                 <Swiper
-      modules={[Pagination, Autoplay]}
-      autoplay={{
-        delay: 3000, // slide every 3 seconds
-        disableOnInteraction: false, // keep autoplay after swipe
-      }}
-      pagination={{ clickable: true }}
-      loop={true} // infinite loop
-      className="w-[86%] lg:w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden"
-    >
-      {JSON.parse(productData?.images || "[]").map((img, i) => (
-        <SwiperSlide key={i}>
-          <img
-            src={`${imageurl}/${img}`}
-            alt={`Image ${i}`}
-            className="w-full h-full "
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+                  modules={[Pagination, Autoplay]}
+                  autoplay={{
+                    delay: 3000, // slide every 3 seconds
+                    disableOnInteraction: false, // keep autoplay after swipe
+                  }}
+                  pagination={{ clickable: true }}
+                  loop={true} // infinite loop
+                  className="w-[86%] lg:w-full h-[300px] md:h-[500px] overflow-hidden"
+                >
+                  {JSON.parse(productData?.images || "[]").map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={`${imageurl}/${img}`}
+                        alt={`Image ${i}`}
+                        className="w-full h-full "
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
 
@@ -324,7 +324,7 @@ if(loader){
             <div className="rightside w-full lg:w-[70%] flex justify-center h-full mt-5 md:mt-0  ">
               <div className="max-w-2xl w-full space-y-4">
                 <h5 className="text-2xl md:text-3xl font-semibold text-gray-800">
-{productData?.name }                </h5>
+                  {productData?.name}                </h5>
 
                 <div className="flex items-center gap-x-2 text-sm text-gray-600">
                   <FaStar className="text-yellow-400 text-lg" />
@@ -332,37 +332,37 @@ if(loader){
                 </div>
 
                 <p className="text-green-500 text-base">
-                 {productData?.name }  
+                  {productData?.name}
                   <strong className="font-bold">
-                    {" "}trusted by 200+  home 
+                    {" "}trusted by 200+  home
                   </strong>
                 </p>
 
 
                 {readMore ? (<>
-                  <div className="space-y-4 border-b pb-4 text-gray-700 text-base md:text-lg leading-relaxed" dangerouslySetInnerHTML={{__html:productData?.description2 ? productData?.description2 :""}}>
-                    
+                  <div className="space-y-4 border-b pb-4 text-gray-700 text-base md:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: productData?.description2 ? productData?.description2 : "" }}>
 
-                    
+
+
 
                   </div>
 
-<p
-                      className="mt-2 text-green-600 hover:text-green-800 transition font-medium flex items-center gap-x-1"
-                      onClick={() => setReadMore(false)}
-                    >
-                      Read Less <IoIosArrowUp />
-                    </p>
-                    </>
+                  <p
+                    className="mt-2 text-green-600 hover:text-green-800 transition font-medium flex items-center gap-x-1"
+                    onClick={() => setReadMore(false)}
+                  >
+                    Read Less <IoIosArrowUp />
+                  </p>
+                </>
 
                 ) : (
                   <>
                     <div className="border-b pb-2 text-base text-gray-700 flex gap-2 items-center">
-<p>
-  {productData?.description2
-    ? productData.description2.replace(/<[^>]+>/g, "").slice(0, 75) + "..."
-    : ""}
-</p>                      <span
+                      <p>
+                        {productData?.description2
+                          ? productData.description2.replace(/<[^>]+>/g, "").slice(0, 75) + "..."
+                          : ""}
+                      </p>                      <span
                         className=" text-green-600 font-semibold hover:text-green-800 transition flex items-center gap-x-1"
                         onClick={() => setReadMore(true)}
                       >
@@ -375,14 +375,14 @@ if(loader){
                 <div className="bg-[#f0f5e0] px-5 py-4 rounded-md mt-4 shadow-sm  bloxk lg:flex gap-2  ">
                   <div className="flex items-center justify-between w-full gap-4 text-lg md:text-xl font-medium">
                     <div>
-                    <span className="text-gray-400 line-through">₹{productData?.old_price}</span>
-                    <span className="text-black font-semibold ms-3">₹{productData?.price}</span>
-                
+                      <span className="text-gray-400 line-through">₹{productData?.old_price}</span>
+                      <span className="text-black font-semibold ms-3">₹{productData?.price}</span>
 
-                    <p className="text-green-600 font-semibold ">
-{(((productData?.old_price - productData?.price) / productData?.old_price) * 100).toFixed(2)}% OFF                    </p>
-                
-                </div>  </div>
+
+                      <p className="text-green-600 font-semibold ">
+                        {(((productData?.old_price - productData?.price) / productData?.old_price) * 100).toFixed(2)}% OFF                    </p>
+
+                    </div>  </div>
                   <p className="text-center md:text-start text-lg font-semibold">
                     MRP (incl. of all taxes)
                   </p>
@@ -397,7 +397,7 @@ if(loader){
                     />
                     <span className="font-semibold text-base md:text-lg">50</span>
                   </div>
-                  {productData?.name }   Utensils Coins on this order
+                  {productData?.name}   Coins on this order
                 </div>
 
 
@@ -410,24 +410,22 @@ if(loader){
                       Size:
                     </label>
 
+                    <span
 
 
-<span
-
-
-                          htmlFor="size-1.5L"
-                          className={`variant__button-label  cursor-pointer border  px-4 py-2 rounded peer-checked:bg-[#62371f] peer-checked:text-white transition *
+                      htmlFor="size-1.5L"
+                      className={`variant__button-label  cursor-pointer border  px-4 py-2 rounded peer-checked:bg-[#62371f] peer-checked:text-white transition *
                             
                              border-green-800 text-green-800 font-semibold
                             `}
-                        >
-                          <span>{productData?.unit_quantity}</span>
-                        </span>
+                    >
+                      <span>{productData?.unit_quantity}</span>
+                    </span>
 
 
 
-                   
-                 
+
+
                   </div>
 
                   <div className="flex gap-3 lg:gap-6">
@@ -446,7 +444,7 @@ if(loader){
                       </button>
                     </div> */}
                     <div className="flex gap-3 text-xl">
-                     {inCart? <button
+                      {inCart ? <button
                         // onClick={() => {
                         //  handeladdtocart(productData?.id)
                         // }
@@ -455,19 +453,19 @@ if(loader){
                       >
                         Go to Cart
                       </button> :
-                      <button
-                        onClick={() => {
-                         handeladdtocart(productData?.id,productData?.price)
-                        }
-                        }
-                        className="px-2  p-2 lg:px-4 text-center bg-[#62371f] text-white text-xs lg:text-sm rounded-lg hover:bg-[#87c243]"
-                      >
-                        ADD TO CART
-                      </button>
+                        <button
+                          onClick={() => {
+                            handeladdtocart(productData?.id, productData?.price)
+                          }
+                          }
+                          className="px-2  p-2 lg:px-4 text-center bg-[#62371f] text-white text-xs lg:text-sm rounded-lg hover:bg-[#87c243]"
+                        >
+                          ADD TO CART
+                        </button>
                       }
-            
 
-                      <button  className="  p-2 lg:px-4 border border-gray-400 text-xs lg:text-sm  rounded-lg hover:bg-[#073439] hover:text-white">
+
+                      <button className="hidden  p-2 lg:px-4 border border-gray-400 text-xs lg:text-sm  rounded-lg hover:bg-[#073439] hover:text-white">
                         BUY NOW
                       </button>
                     </div>
@@ -475,7 +473,7 @@ if(loader){
                   </div>
 
 
-                  <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
+                  {/* <div className="flex flex-wrap justify-start gap-2 lg:gap-6 py-3 border-y mt-2 ">
                     {items?.map((item, index) => (
                       <div key={index} className="flex flex-col items-center text-center max-w-[120px]">
                         <div className="mb-2">
@@ -484,7 +482,7 @@ if(loader){
                         <p className="text-sm text-gray-800 font-medium">{item.text}</p>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
 
                   <SecurePayments />
 
@@ -495,7 +493,7 @@ if(loader){
           </div>
 
           <div className="product-Description">
-            <Description  data={productData?.description} />
+            <Description data={productData?.description} />
           </div>
 
 
@@ -516,7 +514,7 @@ if(loader){
                 loop={true}
                 modules={[Autoplay]}
                 spaceBetween={20}
-                slidesPerView={1}
+                slidesPerView={2}
                 breakpoints={{
                   768: {
                     slidesPerView: 2,
@@ -543,7 +541,7 @@ if(loader){
 
 
         </div>
-      </div> 
+      </div>
     </>
   );
 };

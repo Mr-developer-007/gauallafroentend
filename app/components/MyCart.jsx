@@ -142,7 +142,7 @@ if(data.success){
           Earn{" "}
           <img src="/img/product/coin.png" alt="coin" className="w-4 h-4" />
           <span className="font-semibold text-base md:text-lg">50</span>
-          Indian Brass Utensils Coins on this order
+          Gaualla Milk Dairy Coins on this order
         </div>
 
         {cartData?.map((item,index) => (

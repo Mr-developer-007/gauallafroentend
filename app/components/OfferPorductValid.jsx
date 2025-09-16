@@ -4,9 +4,9 @@ import { FaLongArrowAltRight, FaLeaf, FaHeart, FaShieldAlt, FaSeedling, FaMapMar
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function   OfferProductValid() {
+export default function OfferProductValid() {
   const calculateTimeLeft = () => {
-    const targetDate = new Date("2025-05-01T00:00:00"); 
+    const targetDate = new Date("2025-05-01T00:00:00");
     const now = new Date();
     const difference = targetDate - now;
 
@@ -81,8 +81,8 @@ export default function   OfferProductValid() {
       {/* Background decorative elements */}
       <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-green-100 opacity-30"></div>
       <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amber-100 opacity-30"></div>
-      
-      <div className="container mx-auto px-4 py-12 lg:py-20">
+
+      <div className="container mx-auto px-0 py-12 lg:py-20">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-green-100">
           <div className="flex flex-col lg:flex-row">
             {/* Left side - Image with offer badge */}
@@ -97,14 +97,14 @@ export default function   OfferProductValid() {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                
+
                 {/* Offer badge */}
-                <div className="absolute -top-4 -right-4 w-28 h-28 bg-red-500 text-white rounded-full flex flex-col items-center justify-center shadow-lg z-20">
+                <div className="absolute -top-4 -right-4 w-18 lg:w-28 h-18 lg:h-28  bg-red-500 text-white rounded-full flex flex-col items-center justify-center shadow-lg z-20">
                   <span className="text-xs font-semibold">OFFER</span>
                   <span className="text-xl font-bold">20%</span>
                   <span className="text-xs">OFF</span>
                 </div>
-                
+
                 {/* Countdown timer */}
                 <div className="mt-8 bg-white rounded-2xl p-6 shadow-lg">
                   <h3 className="text-center text-lg font-semibold text-gray-800 mb-4">Offer Ends In:</h3>
@@ -121,9 +121,9 @@ export default function   OfferProductValid() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right side - Content */}
-            <div className="lg:w-3/5 p-8 lg:p-12">
+            <div className="lg:w-3/5 p-5 lg:p-12">
               {/* Tagline */}
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex gap-1">
@@ -135,13 +135,13 @@ export default function   OfferProductValid() {
                   The Soul of Desi Cow Milk - Gaualla
                 </span>
               </div>
-              
+
               {/* Heading */}
               <h1 className="text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Hamara A2 desi cow milk <br />
                 <span className="text-green-700">Shuddh Bharatiya Parampara</span>
               </h1>
-              
+
               {/* Description */}
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 Hamara A2 desi cow milk shuddh Bharatiya gaayon se prapt hota
@@ -149,7 +149,7 @@ export default function   OfferProductValid() {
                 prakritik kheti se utpaadit, aur har boond mein shuddhata aur
                 swasthya ka vaada chhupa hai.
               </p>
-              
+
               {/* Features grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 {features.map((feature, index) => (
@@ -166,14 +166,14 @@ export default function   OfferProductValid() {
                   </div>
                 ))}
               </div>
-              
+
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <button className="group flex items-center gap-3 bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                   Order Now
                   <FaLongArrowAltRight className="group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
-                
+
                 <div className="flex items-center text-sm text-gray-500">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600 mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />

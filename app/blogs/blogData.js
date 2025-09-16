@@ -3,8 +3,8 @@ const blogs = [
       author: "Dr. Meera Joshi",
       category: "Health",
       date: "April 10, 2025",
-      para: "Brass utensils have long been part of Indian heritage, used in ancient homes, royal kitchens, and temples for cooking, storing, and religious purposes.",
-      title: " The Glorious Past: History of Brass Utensils in Indian Culture",
+      para: "Brass have long been part of Indian heritage, used in ancient homes, royal kitchens, and temples for cooking, storing, and religious purposes.",
+      title: " The Glorious Past: History of Brass in Indian Culture",
       imageUrl: "/img/blogs/Blog1.webp",
     },
     {
@@ -27,8 +27,8 @@ const blogs = [
       author: "Dr. Vikram Rathi",
       category: "Lifestyle",
       date: "March 20, 2025",
-      para: "To clean brass, use lemon and salt or tamarind paste. Avoid abrasive scrubbers and keep utensils dry to preserve their natural shine.",
-      title: "Brass Utensils Care 101: Cleaning, Polishing, and Storage Tips",
+      para: "To clean brass, use lemon and salt or tamarind paste. Avoid abrasive scrubbers and keep dry to preserve their natural shine.",
+      title: "Brass Care 101: Cleaning, Polishing, and Storage Tips",
       imageUrl: "/img/blogs/Blog4.jpg",
     },
     {

@@ -5,9 +5,9 @@ import { FaGreaterThan } from 'react-icons/fa6'
 import Contact from '../components/Contact'
 
 export const metadata = {
-  title: "Contact Indian Brass Utensils - We're Here to Help",
+  title: "Contact Gaualla Milk Dairy - We're Here to Help",
   description:
-    "Get in touch with Indian Brass Utensils for any questions, support, or product inquiries. We're here to assist you with your herbal wellness journey.",
+    "Get in touch with Gaualla Milk Dairy for any questions, support, or product inquiries. We're here to assist you with your herbal wellness journey.",
 };
 
 

@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { IoSearch } from "react-icons/io5";
+import { IoLocationOutline, IoSearch } from "react-icons/io5";
 import { RiUserLine } from "react-icons/ri";
 import { BsCartPlus } from "react-icons/bs";
 import Link from "next/link";
-import { HiMenu } from "react-icons/hi";
+import { HiMenu, HiOutlineMail } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import MyCart from "./MyCart";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ import Image from "next/image";
 import axios from "axios";
 import { baseurl, imageurl } from "./utlis/apis";
 import { GetUser } from "../store/userSlice";
+import { MdOutlineLocalPhone } from "react-icons/md";
 
 
 
@@ -20,7 +21,7 @@ import { GetUser } from "../store/userSlice";
 export default function MyNav() {
   const [sideBar, setSideBar] = useState(false);
   const dispatch = useDispatch()
- const { info, isLoading, isError, errorMessage } = useSelector(
+  const { info, isLoading, isError, errorMessage } = useSelector(
     (state) => state.user
   );
   const [productSearch, setProductSearch] = useState("");
@@ -40,7 +41,7 @@ export default function MyNav() {
     },
     {
       "title": "Blogs",
-      "link": "/blogs"
+      "link": "#"
     },
 
     {
@@ -60,21 +61,21 @@ export default function MyNav() {
   ]
 
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
-  const [userLogin,setUserLogin]=useState(false)
-
-  
-useEffect(()=>{
-
-if(!isLoading){
-if(info?.success){
-  setUserLogin(true)
-}
+  const [userLogin, setUserLogin] = useState(false)
 
 
-}
+  useEffect(() => {
+
+    if (!isLoading) {
+      if (info?.success) {
+        setUserLogin(true)
+      }
 
 
-},[isLoading])
+    }
+
+
+  }, [isLoading])
 
 
   const SideBarComp = () => {
@@ -86,13 +87,13 @@ if(info?.success){
         <div className="w-full md:w-[50%] bg-white h-full p-6">
           <div className="flex justify-between">
             <Link href="/" className="cursor-pointer">
-             <img
+              <img
                 src="/img/logo.webp"
-                alt="Indian Brass Utensils Logo"
+                alt="Gaualla Milk Dairy Logo"
                 className="w-32 lg:w-64"
-              /> 
+              />
 
-              
+
             </Link>
             <button onClick={() => setSideBar(false)} className="text-black">
               <RxCross2 />
@@ -107,9 +108,32 @@ if(info?.success){
               ))}
 
 
-
-         
              
+              <div className=" mt-4 flex flex-col gap-y-2 text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200 ">
+                <a
+                  href="tel: +91-8378-000052"
+                  className="flex items-center gap-x-2  hover:text-gray-800"
+                >
+                  <MdOutlineLocalPhone className="text-lg" />
+                  +91-8378-000052
+                </a>
+                <a
+                  href="mailto:Gauallamilkpvtltd@gmail.com"
+                  className="flex items-center gap-x-2  hover:text-gray-800"
+                >
+                  <HiOutlineMail />
+                  Gauallamilkpvtltd@gmail.com
+                </a>
+              </div>
+               <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
+                <IoLocationOutline className="mt-2 text-lg" />
+                <p className="xl:text-nowrap">
+                  Booth No 7, Pocket C, Wave Estate, <br />
+                  Sector 85, Mohali, 140306, India
+                </p>
+              </div>
+
+
             </ul>
           </div>
         </div>
@@ -117,44 +141,44 @@ if(info?.success){
     );
   };
 
- 
+
 
   const cartItems = useSelector((state) => state.cart.cartItem)
 
   const cartLengthTotal = cartItems.reduce((accum, curntVal) => accum + curntVal.qnty, 0)
 
-const [searchProducts,setSearchProducts]=useState()
+  const [searchProducts, setSearchProducts] = useState()
 
-  const getProduct=async()=>{
-    if(productSearch.trim().length >=2){
-    const response = await axios.get(`${baseurl}/getproduct/product/search/${productSearch}`)
-    const data= await response.data;
-    if(data.success){
-      setSearchProducts(data.data)
+  const getProduct = async () => {
+    if (productSearch.trim().length >= 2) {
+      const response = await axios.get(`${baseurl}/getproduct/product/search/${productSearch}`)
+      const data = await response.data;
+      if (data.success) {
+        setSearchProducts(data.data)
+      }
+
     }
 
-    }
-
-    else{
+    else {
       return
     }
   }
 
-  useEffect(()=>{
-const inter = setTimeout(() => {
-  getProduct()
-}, 500);
+  useEffect(() => {
+    const inter = setTimeout(() => {
+      getProduct()
+    }, 500);
 
-return ()=> clearTimeout(inter)
+    return () => clearTimeout(inter)
 
-  },[productSearch])
+  }, [productSearch])
 
 
 
-useEffect(()=>{
-dispatch(GetUser())
+  useEffect(() => {
+    dispatch(GetUser())
 
-},[])
+  }, [])
 
 
 
@@ -164,9 +188,9 @@ dispatch(GetUser())
         <Link href="/">
           <img
             src="/img/logo.webp"
-            alt="Indian Brass Utensils Logo"
+            alt="Gaualla Milk Dairy Logo"
             className="w-24 md:w-28 lg:w-34 cursor-pointer"
-          /> 
+          />
 
         </Link>
         <div
@@ -185,7 +209,7 @@ dispatch(GetUser())
             <Link href={"/product?name=all"} className="text-base">Products</Link>
           </div>
 
-         
+
         </div>
 
 
@@ -206,7 +230,7 @@ dispatch(GetUser())
           />
           <IoSearch className="absolute right-5 top-[22px] text-gray-600" />
 
-          {searchProducts  && productSearch &&  (
+          {searchProducts && productSearch && (
             <div className="absolute top-full left-0 w-full bg-white mt-2 rounded-md shadow-lg max-h-[220px] overflow-y-auto z-50">
               <ul className="divide-y divide-gray-200">
                 {searchProducts?.map((item, index) => (
@@ -214,11 +238,11 @@ dispatch(GetUser())
                     key={index}
                     className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
                   >
-                    <Link href={`/product/${item.slug}`} onClick={() => productSearch("")} className="flex justify-between items-center"> <span className="text-[19px]">{item.name }</span>
-                      
-                      <img src={`${imageurl}/${ (JSON.parse(item?.images))[0]}`} alt={item.name } className="h-15 w-15 rounded-full" />
-                      
-                       </Link>
+                    <Link href={`/product/${item.slug}`} onClick={() => productSearch("")} className="flex justify-between items-center"> <span className="text-[19px]">{item.name}</span>
+
+                      <img src={`${imageurl}/${(JSON.parse(item?.images))[0]}`} alt={item.name} className="h-15 w-15 rounded-full" />
+
+                    </Link>
 
                   </li>
                 ))}
@@ -226,7 +250,7 @@ dispatch(GetUser())
             </div>
           )}
 
-          {!searchProducts  && productSearch && (
+          {!searchProducts && productSearch && (
             <div className="absolute top-full left-0 w-full bg-white mt-2 rounded-md shadow-lg p-4 text-gray-500 text-sm z-50">
               No products found.
             </div>
@@ -240,7 +264,7 @@ dispatch(GetUser())
 
 
           <li>
-            <Link href="/blogs" className="text-gray-700 hover:text-[#23955c]">
+            <Link href="#" className="text-gray-700 hover:text-[#23955c]">
               Blogs
             </Link>
           </li>
@@ -255,21 +279,21 @@ dispatch(GetUser())
         </ul>
 
         <ul className="flex items-center gap-x-2 lg:gap-x-6">
-       {  !userLogin ?<li className="hidden md:block">
+          {!userLogin ? <li className="hidden md:block">
             <Link href={"/signup"} className="w-8 h-8 flex justify-center items-center rounded-full border border-gray-400 hover:bg-[#F3F4F7] cursor-pointer">
               <RiUserLine className="text-gray-600" />
             </Link>
           </li>
 
-          : <li className="">
-            <button
-              onClick={() => setCart(true)}
-              className="w-8 h-8 relative flex justify-center items-center rounded-full  bg-[#b2e18c30] border-[#62371f]  cursor-pointer"
-            >
-              <BsCartPlus className="text-[#62371f]" />
-             
-            </button>
-          </li> }
+            : <li className="">
+              <button
+                onClick={() => setCart(true)}
+                className="w-8 h-8 relative flex justify-center items-center rounded-full  bg-[#b2e18c30] border-[#62371f]  cursor-pointer"
+              >
+                <BsCartPlus className="text-[#62371f]" />
+
+              </button>
+            </li>}
           <li className="xl:hidden">
             <button onClick={() => setSideBar(!sideBar)} className="text-xl">
               <HiMenu />

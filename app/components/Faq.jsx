@@ -19,11 +19,22 @@ const faqs = [
     number: "03",
     question: "How can I get fresh dairy products delivered to my home?",
     answer:
-      "If you want to buy our products, just download our Gaualla mobile app. Within just a few taps, you get your pure dairy product. ",
+      "If you want to buy our products, just download our Gaualla mobile app. Within just a few taps, you get your pure dairy product.",
   },
- 
- 
-];
+  {
+    number: "04",
+    question: "Do you add preservatives or chemicals to the milk?",
+    answer:
+      "No, our milk is 100% natural and chemical-free. We do not use preservatives, artificial flavors, or additives. You get pure, farm-fresh milk directly from healthy cows.",
+  },
+  {
+    number: "05",
+    question: "How should I store Gaualla milk at home?",
+    answer:
+      "Our milk should be refrigerated immediately after delivery. Keep it at 4–5°C and consume within 24–36 hours for the best taste and freshness.",
+  }
+]
+
 
 
 export default function FAQSection() {
@@ -38,7 +49,7 @@ export default function FAQSection() {
       <div className="text-center mb-8 px-6">
         <p className="text-lg md:text-xl text-gray-800">Explore</p>
         <h2 className="text-2xl mt-4 md:text-3xl lg:text-4xl italic text-gray-900">
-          Get to Know Indian Brass Utensils
+          Get to Know About Gaualla Milk
         </h2>
       </div>
 

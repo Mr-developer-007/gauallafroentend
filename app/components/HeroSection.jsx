@@ -9,26 +9,20 @@ import axios from "axios";
 import { baseurl, imageurl } from "./utlis/apis";
 
 export default function HeroSection() {
- 
-const [banners,setBanners]=useState()
 
-const fetchBanner=async()=>{
-  const response = await axios.get(`${baseurl}/banner`)
-  const data= await response.data;
-if(data.success){
-  setBanners(data.banners)
-}
-}
+  const [banners, setBanners] = useState()
 
-useEffect(()=>{
-  fetchBanner()
-},[])
+  const fetchBanner = async () => {
+    const response = await axios.get(`${baseurl}/banner`)
+    const data = await response.data;
+    if (data.success) {
+      setBanners(data.banners)
+    }
+  }
 
-
-
-
-
-
+  useEffect(() => {
+    fetchBanner()
+  }, [])
 
   return (
     <>
@@ -45,15 +39,14 @@ useEffect(()=>{
         {banners?.map((elm, index) => (
           <SwiperSlide key={index}>
             <div className="h-[200px] md:h-[450px] lg:h-[600px] w-full relative mx-auto">
-            
+
               <img
                 src={`${imageurl}/${elm.image}`}
                 alt="banner"
-                className="w-full h-full "
+                className="w-full h-full object-fill"
               />
             </div>
           </SwiperSlide>
-
         ))}
       </Swiper>
 

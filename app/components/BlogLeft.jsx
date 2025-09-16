@@ -44,7 +44,7 @@ const BlogLeft = () => {
               {
                 date: "April 10, 2025",
                 title:
-                  "The Glorious Past: History of Brass Utensils in Indian Culture",
+                  "The Glorious Past: History of Brass in Indian Culture",
 
                 img: "/img/blogs/Blog1.webp",
               },
@@ -67,7 +67,7 @@ const BlogLeft = () => {
               {
                 date: "April 14, 2025",
                 title:
-                  "Brass Utensils Care 101: Cleaning, Polishing, and Storage Tips",
+                  "Brass Care 101: Cleaning, Polishing, and Storage Tips",
 
                 img: "/img/blogs/Blog4.jpg",
 

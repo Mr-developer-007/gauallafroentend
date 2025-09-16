@@ -103,7 +103,7 @@ setCategorydata(data.category)
         <div className="text-center mb-10">
           <h2 className="text-xl lg:text-3xl font-semibold">Crafted for all your needs!</h2>
           <p className="text-gray-600 mt-3 max-w-xl mx-auto">
-            From traditional kitchens to modern homes, our utensils are designed to serve every purpose with grace and durability.
+            From traditional kitchens to modern homes, our are designed to serve every purpose with grace and durability.
           </p>
         </div>
 

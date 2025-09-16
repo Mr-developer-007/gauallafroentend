@@ -1,5 +1,6 @@
 import React from 'react'
 import CheckOut from '../components/CheckOut';
+import OtherBanner from '../components/OtherBanner';
 
 
 export const metadata = {
@@ -13,6 +14,8 @@ export default function page() {
 
   return (
     <div>
+      <OtherBanner text="Checkout" />
+
       <CheckOut/>
     </div>
   )

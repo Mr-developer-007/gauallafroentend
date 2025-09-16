@@ -19,22 +19,22 @@ const Footer = () => {
 
 
 
-const [categoryData,setCategorydata]=useState()
+  const [categoryData, setCategorydata] = useState()
 
 
 
 
-  const fetchcategory=async()=>{
-    const response= await axios.get(`${baseurl}/category`)
-    const data= await response.data;
-    if(data.success){
-setCategorydata(data.category)
+  const fetchcategory = async () => {
+    const response = await axios.get(`${baseurl}/category`)
+    const data = await response.data;
+    if (data.success) {
+      setCategorydata(data.category)
     }
 
   }
 
   useEffect(() => {
-   fetchcategory()  
+    fetchcategory()
   }, []);
 
 
@@ -44,70 +44,32 @@ setCategorydata(data.category)
 
 
 
-  const payments = [
-    {
-      img: "/img/footer/1.png",
-      link: "",
-    },
-    {
-      img: "/img/footer/2.png",
-      link: "",
-    },
-    {
-      img: "/img/footer/3.png",
-      link: "",
-    },
-    {
-      img: "/img/footer/4.png",
-      link: "",
-    },
-    {
-      img: "/img/footer/5.png",
-      link: "",
-    },
-  ];
+
 
   const pathName = usePathname();
 
   const check = pathName == "/";
 
-  const productLink = [
-    {
-      link: "/",
-      heading: "Gaualla A2 Panner",
-    },
-    {
-      link: "/",
-
-      heading: "Gaualla A2 Desi Ghee",
-    },
-    {
-      link: "/",
-      heading: "Gaualla A2 Panner",
-    },
-
-
-
-  ];
 
   return (
     <>
-      <footer className="bg-white text-white pt-10  px-5 md:px-12 xl:px-32 relative overflow-hidden">
-
+      <footer
+        className="bg-[url('/footer.jpg')] bg-cover bg-center bg-no-repeat mb-20 md:mb-0 text-white border-t border-[#eee] pt-10 px-5 md:px-12 xl:px-32 relative overflow-hidden"
+      > <div className="absolute inset-0 bg-white/60"></div> 
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row gap-y-10  justify-between mb-8">
             <div className="space-y-4 lg:w-[30%]">
               <Link href="/" className="">
-                 <img
+                <img
                   src="/img/logo.webp"
                   alt="logo"
                   className="w-32 md:w-28 lg:w-48"
-                /> 
+                />
 
-          
+
               </Link>
               <p className="mt-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
-               Experience the essence of natural wellness with Gaualla Milk Dairy. Our dairy products are pure, chemical-free, and crafted with care to promote holistic health and nourishment.
+                Experience the essence of natural wellness with Gaualla Milk Dairy. Our dairy products are pure, chemical-free, and crafted with care to promote holistic health and nourishment.
               </p>
               <div className="flex items-center text-xl gap-x-2">
                 <a
@@ -142,7 +104,7 @@ setCategorydata(data.category)
             </div>
 
             <div className="space-y-2 hidden lg:block">
-              <h2 className="text-xl text-gray-800">Quick Links</h2>
+              <h2 className="text-xl text-gray-800 font-bold">Quick Links</h2>
               <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
                 <li className="hover:text-gray-800">
                   <Link href="/">Home</Link>
@@ -163,17 +125,24 @@ setCategorydata(data.category)
             </div>
 
             <div className="space-y-2 hidden lg:block">
-              <h2 className="text-xl text-gray-800 ">Our Products</h2>
+              <h2 className="text-xl text-gray-800 font-bold ">Our Products</h2>
 
               <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg  ">
-                {categoryData?.slice(0,5).map((elm, index) => (
-                  <li key={index} className="hover:text-gray-800  capitalize">
+                {categoryData?.slice(0, 5).map((elm, index) => (
+                  <li key={index} className="hover:text-gray-800 capitalize">
                     <Link
                       href={`/product?name=${elm.name}`}
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          behavior: "smooth", // smooth scroll
+                        });
+                      }}
                     >
                       {elm.name}
                     </Link>
                   </li>
+
                 ))}
 
               </ul>
@@ -181,7 +150,7 @@ setCategorydata(data.category)
 
             <div className="grid grid-cols-2 lg:hidden pl-4 ">
               <div className="space-y-2 ">
-                <h2 className="text-xl text-gray-800 ">Our Links</h2>
+                <h2 className="text-xl text-gray-800 font-bold ">Our Links</h2>
                 <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg">
                   <li className="hover:text-gray-800 ">
                     <Link href="/">Home</Link>
@@ -202,31 +171,29 @@ setCategorydata(data.category)
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-xl text-gray-800 ">Our Prodcuts</h2>
+                <h2 className="text-xl text-gray-800 font-bold">Our Prodcuts</h2>
 
                 <ul className="space-y-2 text-gray-800  transition-colors duration-200 text-lg ">
-{categoryData?.slice(0,5).map((item,index)=>
-                  <li className="hover:text-gray-800" key={index}>
-                    <Link href={`/product?name=${item.name}`} className="capitalize">{item.name}</Link>
-                  </li>)
+                  {categoryData?.slice(0, 5).map((item, index) =>
+                    <li className="hover:text-gray-800" key={index}>
+                      <Link href={`/product?name=${item.name}`} className="capitalize">{item.name}</Link>
+                    </li>)
 
-}
-
-               
+                  }
 
                 </ul>
               </div>
             </div>
 
             <div className="space-y-2 lg:w-[35%] xl:w-[30%] flex flex-col items-start ">
-              <h2 className="text-xl text-gray-800 ">Our Address</h2>
+              <h2 className="text-xl text-gray-800 font-bold ">Our Address</h2>
 
               {/* <h6 className="">Head Office</h6> */}
               <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
                 <IoLocationOutline className="mt-2 text-lg" />
                 <p className="xl:text-nowrap">
                   Booth No 7, Pocket C, Wave Estate, <br />
-Sector 85, Mohali, 140306, India
+                  Sector 85, Mohali, 140306, India
                 </p>
               </div>
               <div className="flex flex-col gap-y-2 text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200 ">
@@ -235,7 +202,7 @@ Sector 85, Mohali, 140306, India
                   className="flex items-center gap-x-2  hover:text-gray-800"
                 >
                   <MdOutlineLocalPhone className="text-lg" />
-                   +91-8378-000052
+                  +91-8378-000052
                 </a>
                 <a
                   href="mailto:Gauallamilkpvtltd@gmail.com"
@@ -246,7 +213,7 @@ Sector 85, Mohali, 140306, India
                 </a>
               </div>
 
-              
+
             </div>
           </div>
         </div>

@@ -7,42 +7,42 @@ export default function LatestBlog() {
   const blogData1 = [
     {
       image: "/img1.jpg",
-      title: "The Healing Power of Brass in Your Kitchen",
+      title: "Health Benefits of Drinking Milk Daily",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
-        "Discover why ancient Ayurveda recommends brass utensils and how they can naturally boost your health, digestion, and immunity.",
+        "Milk is often called a “complete food” because it contains calcium, protein, vitamins, and minerals essential for our body. ",
     },
     {
       image: "/img2.jpg",
-      title: "From Artisan Hands to Your Home",
+      title: "Why Milk is Called a Superfood",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
-        "Explore the story behind our handcrafted utensils and meet the skilled Indian artisans preserving centuries-old metalcraft traditions.",
+        "Milk is not just a beverage – it’s a powerhouse of nutrients. From calcium and vitamin D for strong bones to protein for energy and muscle repair.",
     },
   ];
 
   const blogData2 = [
     {
       image: "/img3.jpg",
-      title: "Sustainability Through Tradition",
+      title: "Best Times to Drink Milk – Morning or Night?",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
-        "Learn how switching to brass and copper cookware is not just good for your health—but also great for the planet.",
+        "Many people wonder when it’s best to drink milk. Morning milk gives energy to start the day, while warm milk at night helps in relaxation and better sleep.",
     },
     {
       image: "/img4.jpg",
-      title: "Caring for Your Brass & Copper Utensils",
+      title: "Milk for Fitness & Bodybuilding",
       shape: "/img/blogs/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
-        "Keep your utensils shining and lasting for generations with these easy, natural cleaning and maintenance tips.",
+        "Milk is one of the best natural protein drinks. It helps in muscle recovery, provides energy after workouts, and is cheaper than artificial supplements.",
     },
   ];
 
@@ -61,7 +61,7 @@ export default function LatestBlog() {
         {blogData1.map((item, index) => (
           <div key={index} className="contents">
             <div className="">
-              <img src={item.image} alt="" className=" object-cover w-screen md:h-full md:w-full" />
+              <img src={item.image} alt="" className=" object-cover w-auto md:h-full md:w-full" />
             </div>
             <div className="p-4 lg:p-6 space-y-4 flex flex-col items-center text-center">
 
@@ -104,7 +104,7 @@ export default function LatestBlog() {
               </p>
             </div>
             <div className="">
-              <img src={item.image} alt="" className="h-full" />
+              <img src={item.image} alt="" className="h-auto w-auto" />
             </div>
           </div>
         ))}

@@ -21,10 +21,10 @@ export default function ProductAyurvedCard({ product }) {
     id,
     slug
   } = product;
-  
 
 
- 
+
+
 
   const [isDescriptionExpanded, setDescriptionExpanded] = useState(false);
   const wishList = useSelector((state) => state.wish.wishlist);
@@ -76,9 +76,9 @@ export default function ProductAyurvedCard({ product }) {
                     onClick={() => setActiveImg(img)}
                     className="w-[70px] h-[70px] sm:h-[90px] sm:w-[90px] lg:w-[100px] lg:h-[110px] xl:h-[100px] border border-green-500 cursor-pointer"
                   >
-                    <img 
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}/storage/${img}`} 
-                      className="w-full h-full object-cover" 
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}/storage/${img}`}
+                      className="w-full h-full object-cover"
                       alt={`Product ${index + 1}`}
                     />
                   </div>
@@ -170,31 +170,40 @@ export default function ProductAyurvedCard({ product }) {
 
   return (
     <>
-      <Link    href={`/product/${slug}`} className="card group shadow-lg relative hover:shadow-xl transition-shadow bg-white duration-300 rounded-lg overflow-hidden">
-        <div className="relative">
+      <Link
+        href={`/product/${slug}`}
+        className="card group shadow-lg relative hover:shadow-xl transition-shadow bg-white duration-300 rounded-lg overflow-hidden  h-full min-h-[150px] lg:min-h-[520px] flex flex-col"
+      >
+        {/* Image Section */}
+        <div className="relative ">
           {old_price && (
-            <span className="absolute top-2 lg:top-5 left-2 lg:left-5 z-10 bg-green-500 text-white text-xs font-semibold py-1 px-3 rounded-full">
+            <span className="absolute hidden lg:block top-2 lg:top-5 left-2 lg:left-5 z-10 bg-green-500 text-white text-xs font-semibold py-1 px-3 rounded-full">
               {Math.round(((old_price - price) / old_price) * 100)}% OFF
             </span>
           )}
           <img
             src={`${imageurl}/${images?.[0]}`}
             alt={name}
-            className="w-full hover:scale-105 h-[250px] object-contain transition-opacity duration-600 pt-2"
+            className="w-full hover:scale-105 h-[120px] lg:h-[250px] object-contain transition-opacity duration-600 pt-2"
           />
         </div>
-        <div className="p-4 space-y-2 bg-white">
+
+        {/* Content Section */}
+        <div className="p-4 space-y-2 bg-white flex flex-col flex-grow">
           <div className="flex justify-between">
             <p className="font-semibold text-sm lg:text-lg text-gray-800">{name}</p>
           </div>
-          <div className="text-gray-600 text-base leading-relaxed hidden lg:block"   >
-           <div   dangerouslySetInnerHTML={{
-    __html: isDescriptionExpanded
-      ? description
-      : `${description?.slice(0, 50)}...`,
-  }}></div>
+
+          <div className="text-gray-600 text-base leading-relaxed hidden lg:block">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: isDescriptionExpanded
+                  ? description
+                  : `${description?.slice(0, 50)}...`,
+              }}
+            />
             {description?.length > 50 && (
-              <button 
+              <button
                 className="text-blue-500 ml-1"
                 onClick={() => setDescriptionExpanded(!isDescriptionExpanded)}
               >
@@ -205,7 +214,8 @@ export default function ProductAyurvedCard({ product }) {
 
           <hr className="text-gray-300" />
 
-          <div className="block lg:flex justify-between">
+          {/* Price + Rating */}
+          <div className="block lg:flex justify-between mt-auto">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-1 text-lg font-semibold text-gray-700">
                 <span className="text-xl">₹{price}</span>
@@ -223,7 +233,8 @@ export default function ProductAyurvedCard({ product }) {
             </div>
           </div>
 
-          <div className="flex gap-x-4 items-center">
+          {/* Buttons */}
+          <div className="flex gap-x-4 items-center mt-3">
             <button
               onClick={() => handleWishListToogle(product)}
               className="cursor-pointer border p-1 lg:p-1.5 font-bold rounded lg:relative absolute lg:top-0 top-2 lg:right-0 right-2 bg-white"
@@ -231,17 +242,14 @@ export default function ProductAyurvedCard({ product }) {
               {added ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
             </button>
 
-            <p
-              className="font-semibold text-xs lg:text:base text-white w-full py-2 text-center flex items-center justify-center rounded-md border border-gray-200 bg-[#62371f] hover:bg-[#69a14fe7] transition duration-300"
-            >
+            <p className="font-semibold text-xs lg:text:base text-white w-full py-2 text-center flex items-center justify-center rounded-md border border-gray-200 bg-[#62371f] hover:bg-[#69a14fe7] transition duration-300">
               <IoMdCart className="mr-1" />
               <span>View product</span>
             </p>
           </div>
         </div>
-
-       
       </Link>
+
 
       {quickView && <QuickView />}
     </>

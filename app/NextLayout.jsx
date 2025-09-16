@@ -7,27 +7,27 @@ import Footer from './components/Footer'
 import BottomfixLinks from './components/BottomfixLinks'
 import { usePathname } from 'next/navigation'
 import axios from 'axios'
-axios.defaults.withCredentials=true;
+axios.defaults.withCredentials = true;
 
-const NextLayout = ({children}) => {
-    const path =usePathname()
+const NextLayout = ({ children }) => {
+  const path = usePathname()
   return (
     <>
-    
 
 
-   {!path.includes("admin") ? <><TopBar />
-          <MyNav />
-          {children}
-          <Footer />
-          <BottomfixLinks />
-          </>
-          :
-          <>{
-            children
-          }</>
-          }
-    
+
+      {!path.includes("admin") ? <><TopBar />
+        <MyNav />
+        {children}
+        <Footer />
+        <BottomfixLinks />
+      </>
+        :
+        <>{
+          children
+        }</>
+      }
+
     </>
   )
 }

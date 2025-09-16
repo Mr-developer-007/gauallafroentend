@@ -73,7 +73,7 @@ export default function BlogInner({ currentBlog }) {
                 {title}
               </h1>
               <p className="mb-4 text-base lg:text-lg text-justify text-[#212529] leading-[1.8]">
-                Indian brass utensils hold a unique place in the cultural and culinary heritage of India. Known for their elegant golden-yellow sheen and long-lasting durability, brass utensils have been used in Indian households for centuries. From royal kitchens and temples to rural homes, these utensils are deeply rooted in tradition and spirituality. Cooking in brass is not just a cultural choice but a healthy one. Ayurveda, the ancient Indian system of medicine, recommends using brass utensils because the alloy—made from copper and zinc—offers numerous health benefits.
+                Gaualla Milk Dairy hold a unique place in the cultural and culinary heritage of India. Known for their elegant golden-yellow sheen and long-lasting durability, brass have been used in Indian households for centuries. From royal kitchens and temples to rural homes, these are deeply rooted in tradition and spirituality. Cooking in brass is not just a cultural choice but a healthy one. Ayurveda, the ancient Indian system of medicine, recommends using brass because the alloy—made from copper and zinc—offers numerous health benefits.
               </p>
 
               <p className="mb-4 text-base lg:text-lg text-justify text-[#212529] leading-[1.8]">
@@ -98,7 +98,7 @@ export default function BlogInner({ currentBlog }) {
               </blockquote>
 
               <p className="mb-4 text-base lg:text-lg text-justify text-[#212529] leading-[1.8]">
-                However, identifying and maintaining pure brass utensils requires attention. Pure brass is non-magnetic, slightly heavy, and produces a deep sound when tapped. It should be cleaned regularly with natural ingredients like lemon, tamarind, or baking soda to retain its shine without damaging its surface. As modern kitchens evolve, brass is making a stylish comeback.
+                However, identifying and maintaining pure brass requires attention. Pure brass is non-magnetic, slightly heavy, and produces a deep sound when tapped. It should be cleaned regularly with natural ingredients like lemon, tamarind, or baking soda to retain its shine without damaging its surface. As modern kitchens evolve, brass is making a stylish comeback.
               </p>
             </div>
 
@@ -213,7 +213,7 @@ export default function BlogInner({ currentBlog }) {
 
                           <div className="comment-content mb-2 text-justify text-sm text-[#212529] leading-[1.8]">
                             <p className="text-base lg:text-lg leading-[1.8] text-justify">
-                              I recently started using Indian brass utensils in my daily cooking, and the difference has been remarkable. Not only do they add a beautiful, traditional aesthetic to my kitchen, but I also feel that the food tastes better—more wholesome and earthy. I've always heard from elders that cooking in brass has health benefits, and now I understand why.
+                              I recently started using Gaualla Milk Dairy in my daily cooking, and the difference has been remarkable. Not only do they add a beautiful, traditional aesthetic to my kitchen, but I also feel that the food tastes better—more wholesome and earthy. I've always heard from elders that cooking in brass has health benefits, and now I understand why.
                             </p>
                           </div>
                           <div className="reply">
@@ -254,7 +254,7 @@ export default function BlogInner({ currentBlog }) {
 
                               <div className="comment-content mb-2 text-justify text-sm text-[#212529] leading-[1.8]">
                                 <p className="text-base lg:text-lg leading-[1.8] text-justify">
-                                  Using brass utensils has brought a sense of nostalgia and purpose to my cooking. I bought a brass handi and a serving bowl, both handmade by artisans from Rajasthan. The detailing is exquisite, and it feels amazing to use something crafted by hand rather than mass-produced. Brass takes a little extra care, but the natural cleaning methods work wonders.
+                                  Using brass has brought a sense of nostalgia and purpose to my cooking. I bought a brass handi and a serving bowl, both handmade by artisans from Rajasthan. The detailing is exquisite, and it feels amazing to use something crafted by hand rather than mass-produced. Brass takes a little extra care, but the natural cleaning methods work wonders.
                                 </p>
                               </div>
                               <div className="reply">
@@ -297,7 +297,7 @@ export default function BlogInner({ currentBlog }) {
 
                           <div className="comment-content mb-2 text-justify text-sm text-[#212529] leading-[1.8]">
                             <p className="text-base lg:text-lg leading-[1.8] text-justify">
-                              My grandmother used to cook in brass utensils, and now I understand why she swore by them. After switching to brass for cooking and serving, I can honestly say there’s no going back. The food not only looks richer when served in brass, but also feels healthier. The utensils retain heat well and are surprisingly versatile.
+                              My grandmother used to cook in brass utensils, and now I understand why she swore by them. After switching to brass for cooking and serving, I can honestly say there’s no going back. The food not only looks richer when served in brass, but also feels healthier. The retain heat well and are surprisingly versatile.
                             </p>
                           </div>
                           <div className="reply">
