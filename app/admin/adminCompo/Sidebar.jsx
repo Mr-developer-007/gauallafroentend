@@ -53,7 +53,7 @@ export default function Sidebar() {
 
 <li className="flex items-center gap-x-4 p-2 hover:bg-gray-700 rounded-md text-white">
             <FaBlogger />
-            {open && <Link href="/admin/blogs">Blog</Link>}
+            {open && <Link href="/admin#">Blog</Link>}
           </li>
 
           <li className="flex items-center gap-x-4 p-2 hover:bg-gray-700 rounded-md text-white">

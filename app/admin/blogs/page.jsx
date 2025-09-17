@@ -45,7 +45,7 @@ const page = () => {
   <div className="flex justify-between items-center px-6 py-4 bg-white shadow rounded-lg mb-6">
     <p className="text-2xl font-bold text-gray-800">📚 Blogs</p>
     <Link
-      href="/admin/blogs/create"
+      href="/admin#/create"
       className="bg-yellow-600 hover:bg-yellow-700 text-white text-lg px-4 py-2 rounded-lg font-semibold shadow transition"
     >
       + Create Blog

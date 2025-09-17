@@ -19,26 +19,26 @@ export default function MyCart({ cart, setCart }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [cartData, setCartData] = useState();
-  const [subTotal,setsubTotal]=useState()
+  const [subTotal, setsubTotal] = useState()
 
   const fetchCart = async () => {
     try {
       setLoading(true);
       const response = await axios.get(`${baseurl}/cart/cartallcart`);
-      const  data  = await  response.data;
-      if(data.success){
+      const data = await response.data;
+      if (data.success) {
         setCartData(data.carts)
-const totalamount = data.carts.reduce((acc, item) => acc + parseInt(item.total_price), 0);
+        const totalamount = data.carts.reduce((acc, item) => acc + parseInt(item.total_price), 0);
         setsubTotal(totalamount)
-      }else{
+      } else {
         setCartData("")
       }
-      
+
       // setCartData({
       //   data,
       //   total
       // });
-      
+
       // Update Redux store if needed
       // dispatch(setCartItems(data));
     } catch (error) {
@@ -51,31 +51,31 @@ const totalamount = data.carts.reduce((acc, item) => acc + parseInt(item.total_p
 
   const removeItem = async (itemId) => {
     try {
-  const response =       await axios.delete(`${baseurl}/cart/deletecart/${itemId}`);
-     const data= await response.data;
-     if(data.success){
-      fetchCart();
-     }
+      const response = await axios.delete(`${baseurl}/cart/deletecart/${itemId}`);
+      const data = await response.data;
+      if (data.success) {
+        fetchCart();
+      }
     } catch (error) {
       console.error("Error removing item:", error);
     }
   };
 
   useEffect(() => {
-  
-      fetchCart();
-    
+
+    fetchCart();
+
   }, []);
 
-  const handelcartquentity=async(bool,id)=>{
+  const handelcartquentity = async (bool, id) => {
 
-const response = await axios.put(`${baseurl}/cart/updatecart/${id}`,{increment:bool});
-const data= await response.data;
-if(data.success){
-   
+    const response = await axios.put(`${baseurl}/cart/updatecart/${id}`, { increment: bool });
+    const data = await response.data;
+    if (data.success) {
+
       fetchCart();
-   
-}
+
+    }
 
   }
 
@@ -108,7 +108,7 @@ if(data.success){
             <img src="https://cdn-icons-png.flaticon.com/128/4290/4290854.png" alt="empty Cart" className="h-16 w-16 mt-4 lg:w-24 lg:h-24" />
             <div className="py-5">
               <Link
-                href="/all-products"
+                href="/product?name=all"
                 onClick={() => setCart(false)}
                 className="mt-4 animate-bounce uppercase font-medium text-sm md:text-base text-white px-5 py-2.5 rounded-md bg-[#62371f] hover:bg-[#4a9347] transition-all duration-300 shadow-md" >
                 Continue Shopping
@@ -145,12 +145,12 @@ if(data.success){
           Gaualla Milk Dairy Coins on this order
         </div>
 
-        {cartData?.map((item,index) => (
+        {cartData?.map((item, index) => (
           <div key={index} className="content-section px-2">
             <div className="mt-4 lg:mt-6 border border-gray-300 bg-[#ebede57c] p-4 rounded-lg shadow-sm flex flex-row md:flex-row items-start md:items-center justify-between gap-4">
               <div className="">
                 <img
-                  src={`${imageurl}/${ JSON.parse(item?.images)[0]}` || "/img/product/default-product.jpg"}
+                  src={`${imageurl}/${JSON.parse(item?.images)[0]}` || "/img/product/default-product.jpg"}
                   alt={item?.name}
                   className="h-20 w-20 md:h-24 md:w-24 rounded object-cover"
                 />
@@ -168,15 +168,15 @@ if(data.success){
                     <span className="text-xl font-bold text-green-600">₹{item?.total_price}</span>
                   </div>
                   <div className="flex items-center gap-3 bg-white px-2 rounded-2xl">
-                    <button 
-                      onClick={() => handelcartquentity(false,item.cart_id)}
+                    <button
+                      onClick={() => handelcartquentity(false, item.cart_id)}
                       className="rounded-2xl bg-[#e6f3eb76] text-gray-600 hover:text-green-500 transition border border-gray-400 p-1"
                     >
                       <FaMinus className="text-xs" />
                     </button>
                     <span className="text-lg font-medium">{item?.quantity}</span>
-                    <button 
-                      onClick={() => handelcartquentity(true,item.cart_id)}
+                    <button
+                      onClick={() => handelcartquentity(true, item.cart_id)}
                       className="rounded-2xl bg-[#e6f3eb76] text-gray-600 hover:text-green-500 transition border border-gray-400 p-1"
                     >
                       <FaPlus className="text-xs" />
@@ -184,15 +184,16 @@ if(data.success){
                   </div>
                 </div>
                 <div className=" flex my-2 justify-between">
-                <button 
-                  onClick={() => removeItem(item.cart_id)}
-                  className="mt-2 text-red-500 text-sm flex items-center cursor-pointer"
-                >
-                  <RxCross2 className="mr-1" /> Remove
-                </button>
-                <button onClick={()=>{
-                         localStorage.setItem("buyitem",item?.cart_id),
-                        router.push("/checkout"),setCart(false)}} className="p-1 cursor-pointer  px-3 font-semibold rounded-2xl bg-green-300 text-green-700">Buy Now</button>
+                  <button
+                    onClick={() => removeItem(item.cart_id)}
+                    className="mt-2 text-red-500 text-sm flex items-center cursor-pointer"
+                  >
+                    <RxCross2 className="mr-1" /> Remove
+                  </button>
+                  <button onClick={() => {
+                    localStorage.setItem("buyitem", item?.cart_id),
+                      router.push("/checkout"), setCart(false)
+                  }} className="p-1 cursor-pointer  px-3 font-semibold rounded-2xl bg-green-300 text-green-700">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -299,7 +300,7 @@ if(data.success){
             </h6>
           </div>
 
-        
+
         </div>
       </div>
     </div>

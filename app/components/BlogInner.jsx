@@ -191,7 +191,7 @@ export default function BlogInner({ currentBlog }) {
                     <li className="comment">
                       <div className="comment-body block lg:flex gap-4 items-start  py-4 px-0 lg:px-4 border-b border-gray-200">
                         <Image
-                          src="/img/blogs/cmt1.webp"
+                          src="/img#/cmt1.webp"
                           width={50}
                           height={50}
                           className="avatar rounded-full"
@@ -232,7 +232,7 @@ export default function BlogInner({ currentBlog }) {
                         <li className="comment mt-4">
                           <div className="comment-body block lg:flex gap-4 items-start  py-4 px-0 lg:px-4 border-b border-gray-200">
                             <Image
-                              src="/img/blogs/cmt2.webp"
+                              src="/img#/cmt2.webp"
                               width={50}
                               height={50}
                               className="avatar rounded-full"
@@ -275,7 +275,7 @@ export default function BlogInner({ currentBlog }) {
                     <li className="comment mt-4">
                       <div className="comment-body block lg:flex gap-4 items-start  py-4 px-0 lg:px-4 border-b border-gray-200">
                         <Image
-                          src="/img/blogs/cmt3.webp"
+                          src="/img#/cmt3.webp"
                           width={50}
                           height={50}
                           className="avatar rounded-full"

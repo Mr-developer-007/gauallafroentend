@@ -8,7 +8,7 @@ export default function LatestBlog() {
     {
       image: "/img1.jpg",
       title: "Health Benefits of Drinking Milk Daily",
-      shape: "/img/blogs/shape.webp",
+      shape: "/img#/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
@@ -17,7 +17,7 @@ export default function LatestBlog() {
     {
       image: "/img2.jpg",
       title: "Why Milk is Called a Superfood",
-      shape: "/img/blogs/shape.webp",
+      shape: "/img#/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
@@ -29,7 +29,7 @@ export default function LatestBlog() {
     {
       image: "/img3.jpg",
       title: "Best Times to Drink Milk – Morning or Night?",
-      shape: "/img/blogs/shape.webp",
+      shape: "/img#/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:
@@ -38,7 +38,7 @@ export default function LatestBlog() {
     {
       image: "/img4.jpg",
       title: "Milk for Fitness & Bodybuilding",
-      shape: "/img/blogs/shape.webp",
+      shape: "/img#/shape.webp",
       author: "By admin",
       comments: "2 comments",
       description:

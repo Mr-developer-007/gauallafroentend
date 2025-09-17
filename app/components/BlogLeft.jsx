@@ -46,21 +46,21 @@ const BlogLeft = () => {
                 title:
                   "The Glorious Past: History of Brass in Indian Culture",
 
-                img: "/img/blogs/Blog1.webp",
+                img: "/img#/Blog1.webp",
               },
               {
                 date: "April 11, 2025",
                 title:
                   "Why Cooking in Brass is Better: Health Benefits You Didn't Know",
 
-                img: "/img/blogs/Blog2.webp",
+                img: "/img#/Blog2.webp",
 
               },
               {
                 date: "April 12, 2025",
                 title: "How to Identify Pure Brass Utensils: A Buyer’s Guide",
 
-                img: "/img/blogs/Blog3.webp",
+                img: "/img#/Blog3.webp",
 
               },
 
@@ -69,7 +69,7 @@ const BlogLeft = () => {
                 title:
                   "Brass Care 101: Cleaning, Polishing, and Storage Tips",
 
-                img: "/img/blogs/Blog4.jpg",
+                img: "/img#/Blog4.jpg",
 
               },
             ].map((post, index, arr) => (
@@ -80,7 +80,7 @@ const BlogLeft = () => {
                   : ""
                   }`}
               >
-                <Link href="/blogs">
+                <Link href="#">
                   <div
                     className="thumb w-16 h-16 lg:w-20 lg:h-20 overflow-hidden bg-gray-300 rounded mr-4"
 
@@ -97,7 +97,7 @@ const BlogLeft = () => {
                     {post.date}
                   </time>
                   <h4 className="usmall text-base lg:text-lg font-semibold ">
-                    <Link href="/blogs" className="text-[#474c40]">
+                    <Link href="#" className="text-[#474c40]">
                       {post.title}
                     </Link>
                   </h4>

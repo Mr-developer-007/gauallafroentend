@@ -26,48 +26,48 @@ export default function SuccessStory() {
   const prevRef = useRef(null); // Ref for the previous button
   const nextRef = useRef(null); // Ref for the next button
 
- const testimonials = [
-  {
-    heading: "Freshness you can taste in every sip!",
-    rating: 5,
-    desc: "I’ve tried many brands, but this milk truly reminds me of the freshness I enjoyed growing up in my village. Creamy, rich, and pure – my family loves it every morning.",
-    img: "https://el.commonsupport.com/newwp/hankcok/wp-content/uploads/2021/10/team-1-150x150.jpg",
-    name: "Ravi Kumar",
-    position: "School Teacher",
-  },
-  {
-    heading: "The best paneer I’ve ever had!",
-    rating: 5,
-    desc: "Soft, fresh, and absolutely delicious. The paneer doesn’t crumble like store-bought ones – it cooks perfectly and enhances the taste of every dish.",
-    img: "https://el.commonsupport.com/newwp/hankcok/wp-content/uploads/2021/10/team-1-150x150.jpg",
-    name: "Priya Mehta",
-    position: "Nutritionist",
-  },
-  {
-    heading: "Yogurt that feels homemade.",
-    rating: 5,
-    desc: "The curd is so thick and creamy that my kids finish it within minutes. It tastes just like the dahi my grandmother used to set at home. Truly authentic!",
-    img: "https://el.commonsupport.com/newwp/hankcok/wp-content/uploads/2021/10/team-1-150x150.jpg",
-    name: "Anjali Sharma",
-    position: "Dairy Farm Manager",
-  },
-  {
-    heading: "Perfect for health-conscious families!",
-    rating: 4,
-    desc: "Their ghee has an aroma that fills the whole kitchen. Knowing it’s pure and free from additives makes me confident I’m giving my family the best.",
-    img: "https://el.commonsupport.com/newwp/hankcok/wp-content/uploads/2021/10/team-1-150x150.jpg",
-    name: "Emily Davis",
-    position: "Pastry Chef",
-  },
-  {
-    heading: "Cheese that melts hearts.",
-    rating: 5,
-    desc: "The cheese is creamy, flavorful, and melts beautifully. My kids enjoy it on sandwiches, while I love adding it to homemade pasta. Absolutely premium quality!",
-    img: "https://el.commonsupport.com/newwp/hankcok/wp-content/uploads/2021/10/team-1-150x150.jpg",
-    name: "Arjun Verma",
-    position: "Café Owner",
-  },
-];
+  const testimonials = [
+    {
+      heading: "Freshness you can taste in every sip!",
+      rating: 5,
+      desc: "I’ve tried many brands, but this milk truly reminds me of the freshness I enjoyed growing up in my village. Creamy, rich, and pure – my family loves it every morning.",
+      img: "/admin.avif",
+      name: "Ravi Kumar",
+      position: "School Teacher",
+    },
+    {
+      heading: "The best paneer I’ve ever had!",
+      rating: 5,
+      desc: "Soft, fresh, and absolutely delicious. The paneer doesn’t crumble like store-bought ones – it cooks perfectly and enhances the taste of every dish.",
+      img: "/admin.avif",
+      name: "Priya Mehta",
+      position: "Nutritionist",
+    },
+    {
+      heading: "Yogurt that feels homemade.",
+      rating: 5,
+      desc: "The curd is so thick and creamy that my kids finish it within minutes. It tastes just like the dahi my grandmother used to set at home. Truly authentic!",
+      img: "/admin.avif",
+      name: "Anjali Sharma",
+      position: "Dairy Farm Manager",
+    },
+    {
+      heading: "Perfect for health-conscious families!",
+      rating: 4,
+      desc: "Their ghee has an aroma that fills the whole kitchen. Knowing it’s pure and free from additives makes me confident I’m giving my family the best.",
+      img: "/admin.avif",
+      name: "Emily Davis",
+      position: "Pastry Chef",
+    },
+    {
+      heading: "Cheese that melts hearts.",
+      rating: 5,
+      desc: "The cheese is creamy, flavorful, and melts beautifully. My kids enjoy it on sandwiches, while I love adding it to homemade pasta. Absolutely premium quality!",
+      img: "/admin.avif",
+      name: "Arjun Verma",
+      position: "Café Owner",
+    },
+  ];
 
   const [showDec, setShowDec] = useState(110);
   const [expan, setExpand] = useState(null);

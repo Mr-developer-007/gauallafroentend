@@ -303,14 +303,14 @@ const ProductDetails = ({ slug }) => {
                   }}
                   pagination={{ clickable: true }}
                   loop={true} // infinite loop
-                  className="w-[86%] lg:w-full h-[300px] md:h-[500px] overflow-hidden"
+                  className="w-[86%] lg:w-full h-auto md:h-[500px] overflow-hidden"
                 >
                   {JSON.parse(productData?.images || "[]").map((img, i) => (
                     <SwiperSlide key={i}>
                       <img
                         src={`${imageurl}/${img}`}
                         alt={`Image ${i}`}
-                        className="w-full h-full "
+                        className="w-full h-full p-5 lg:p-0"
                       />
                     </SwiperSlide>
                   ))}

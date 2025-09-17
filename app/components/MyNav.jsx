@@ -50,7 +50,7 @@ export default function MyNav() {
     },
     {
       "title": "Products",
-      "link": "/all-products"
+      "link": "/product?name=all"
     },
 
     {
@@ -108,7 +108,7 @@ export default function MyNav() {
               ))}
 
 
-             
+
               <div className=" mt-4 flex flex-col gap-y-2 text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200 ">
                 <a
                   href="tel: +91-8378-000052"
@@ -125,7 +125,7 @@ export default function MyNav() {
                   Gauallamilkpvtltd@gmail.com
                 </a>
               </div>
-               <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
+              <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
                 <IoLocationOutline className="mt-2 text-lg" />
                 <p className="xl:text-nowrap">
                   Booth No 7, Pocket C, Wave Estate, <br />
@@ -189,7 +189,7 @@ export default function MyNav() {
           <img
             src="/img/logo.webp"
             alt="Gaualla Milk Dairy Logo"
-            className="w-24 md:w-28 lg:w-34 cursor-pointer"
+            className="w-auto h-14 lg:h-20 cursor-pointer"
           />
 
         </Link>
@@ -295,7 +295,7 @@ export default function MyNav() {
               </button>
             </li>}
           <li className="xl:hidden">
-            <button onClick={() => setSideBar(!sideBar)} className="text-xl">
+            <button onClick={() => setSideBar(!sideBar)} className="text-xl mt-2">
               <HiMenu />
             </button>
           </li>

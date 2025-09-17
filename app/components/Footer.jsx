@@ -53,9 +53,36 @@ const Footer = () => {
 
   return (
     <>
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/+918378000052" // replace with your WhatsApp number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-3 z-50"
+      >
+        <img
+          src="/whatsapp.png"   // put whatsapp.png in public folder
+          alt="WhatsApp"
+          className="w-10 lg:w-12 h-10 lg:h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
+        />
+      </a>
+
+
+      <a
+        href="tel:+918378000052" // replace with your phone number
+        className="fixed bottom-[85px] right-4 z-50" // placed above WhatsApp button
+      >
+        <img
+          src="/phone-call.png"   // put call.png in public folder (use phone icon)
+          alt="Call Us"
+          className="w-10 lg:w-12 h-10 lg:h-12 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+        />
+      </a>
+
+
       <footer
         className="bg-[url('/footer.jpg')] bg-cover bg-center bg-no-repeat mb-20 md:mb-0 text-white border-t border-[#eee] pt-10 px-5 md:px-12 xl:px-32 relative overflow-hidden"
-      > <div className="absolute inset-0 bg-white/60"></div> 
+      > <div className="absolute inset-0 bg-white/60"></div>
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row gap-y-10  justify-between mb-8">
             <div className="space-y-4 lg:w-[30%]">
@@ -110,17 +137,19 @@ const Footer = () => {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="hover:text-gray-800">
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-                <li className="hover:text-gray-800">
                   <Link href="/about">About</Link>
-                </li>
-                <li className="hover:text-gray-800">
-                  <Link href="/contact-us">Contact Us</Link>
                 </li>
                 <li className="hover:text-gray-800">
                   <Link href="/product/?name=all">Product</Link>
                 </li>
+                <li className="hover:text-gray-800">
+                  <Link href="#">Blogs</Link>
+                </li>
+
+                <li className="hover:text-gray-800">
+                  <Link href="/contact-us">Contact Us</Link>
+                </li>
+
               </ul>
             </div>
 
@@ -156,7 +185,7 @@ const Footer = () => {
                     <Link href="/">Home</Link>
                   </li>
                   <li className="hover:text-gray-800">
-                    <Link href="/blogs">Blogs</Link>
+                    <Link href="#">Blogs</Link>
                   </li>
                   <li className="hover:text-gray-800">
                     <Link href="/about">About</Link>

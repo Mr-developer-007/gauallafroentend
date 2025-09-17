@@ -30,7 +30,7 @@ export default function WishList() {
             <FaHeartBroken className="text-5xl text-red-400 mb-4 space-y-4 lg:space-y-6" />
             <p className="text-gray-500 text-lg">Your wishlist is empty!</p>
             <p className="text-sm text-gray-400">Start adding items you love.</p>
-            <Link href="/all-products" className="bg-[#60BE74] mt-4 lg:mt-8 px-6 lg:px-8 py-1   md:py-2 lg:py-3 rounded text-white text-base lg:text-lg font-semibold">  Continue Shopping</Link>
+            <Link href="/product?name=all" className="bg-[#60BE74] mt-4 lg:mt-8 px-6 lg:px-8 py-1   md:py-2 lg:py-3 rounded text-white text-base lg:text-lg font-semibold">  Continue Shopping</Link>
           </div>
         ) : (
           <>

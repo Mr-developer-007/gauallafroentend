@@ -26,7 +26,7 @@ const BlogPage = ({ blogs }) => {
             {blogs.map((blog, index) => (
               <div key={index} className="card-second ">
                 <Link
-                  href={`/blogs/${blog.title
+                  href={`#/${blog.title
                     .toLowerCase()
                     .replace(/[^a-z0-9\s]/g, "")
                     .trim()
@@ -48,7 +48,7 @@ const BlogPage = ({ blogs }) => {
                     / {blog.category} / {blog.date}
                   </p>
                   <Link
-                    href={`/blogs/${blog.title
+                    href={`#/${blog.title
                       .toLowerCase()
                       .replace(/[^a-z0-9\s]/g, "")
                       .trim()
@@ -63,7 +63,7 @@ const BlogPage = ({ blogs }) => {
                     {blog.para}{" "}
                   </p>
                   <Link
-                    href={`/blogs/${blog.title
+                    href={`#/${blog.title
                       .toLowerCase()
                       .replace(/[^a-z0-9\s]/g, "")
                       .trim()
