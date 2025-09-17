@@ -3,7 +3,7 @@ import React from "react";
 
 import HeroSection from "./components/HeroSection";
 import MarqueeText from "./components/MarqueeText";
-import Blogs from "./components/blogs";
+
 import Testmonails from "./components/Testmonails";
 import Faq from "./components/Faq";
 import OfferPorductValid from "./components/OfferPorductValid";
@@ -12,6 +12,7 @@ import Revival from "./components/Revival";
 import ProductAyurved from "./components/ProductAyurved";
 import AboutSection from "./components/Aboutus";
 import Image from "next/image";
+import Blogs from "./components/Blogs";
 
 export const metadata = {
   title: " Gaualla Purity At It's Best",
