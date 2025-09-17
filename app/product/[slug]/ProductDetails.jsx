@@ -391,7 +391,7 @@ const ProductDetails = ({ slug }) => {
                   <div className="flex items-center gap-x-1" >
                     Earn{" "}
                     <img
-                      src="/img/product/coin.png"
+                      src="/img/product/coin.webp"
                       alt="coin"
                       className="w-4 h-4"
                     />

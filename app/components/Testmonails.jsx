@@ -77,10 +77,10 @@ export default function SuccessStory() {
   };
 
   return (
-    <div className="relative  mt-5 lg:mt-10 overflow-hidden  py-5 md:py-10 lg:py-16  bg-[url('https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/test-bg.png')]  ">
+    <div className="relative  mt-5 lg:mt-10 overflow-hidden  py-5 md:py-10 lg:py-16  bg-[url('https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/test-bg.webp')]  ">
 
       <img
-        src="https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/bg-shape3.png"
+        src="https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/bg-shape3.webp"
         alt="cleint-review "
         className="absolute left-0 top-0"
       />

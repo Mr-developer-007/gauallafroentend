@@ -90,7 +90,7 @@ export default function OfferProductValid() {
               <div className="relative w-full max-w-sm">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/img2.jpg"
+                    src="/img2.webp"
                     alt="A2 Desi Cow Milk"
                     width={400}
                     height={500}

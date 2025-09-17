@@ -93,7 +93,7 @@ export default function Revival() {
                        
                     >
 
-                        <img src="/img4.jpg" alt="" className="w-full h-full" />
+                        <img src="/img4.webp" alt="" className="w-full h-full" />
                     </div>
 
                     {/* </div> */}

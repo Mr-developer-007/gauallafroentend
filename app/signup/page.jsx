@@ -120,7 +120,7 @@ route.push("/")
 
     <div className="hidden lg:block w-3/5 relative rounded-2xl">
       <img
-        src="/img1.jpg"
+        src="/img1.webp"
         alt="Background"
         className="w-full h-full object-cover"
       />

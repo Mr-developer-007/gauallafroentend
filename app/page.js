@@ -29,7 +29,7 @@ export default function page() {
 
       <div className="">
         <img
-          src="/range.jpg"
+          src="/range.webp"
           alt="Header Background"
           className="w-full h-full object-fill "
         />

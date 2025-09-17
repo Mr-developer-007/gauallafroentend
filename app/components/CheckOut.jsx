@@ -324,11 +324,11 @@ export default function CheckOut() {
                   <div className="flex items-center mb-5 pb-4 border-b">
                     <div className="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
                       <img
-                        src={`${imageurl}/${JSON.parse(order.images)[0]}` || "/img/placeholder-product.jpg"}
+                        src={`${imageurl}/${JSON.parse(order.images)[0]}` || "/img/placeholder-product.webp"}
                         alt={order?.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.target.src = "/img/placeholder-product.jpg";
+                          e.target.src = "/img/placeholder-product.webp";
                         }}
                       />
                     </div>

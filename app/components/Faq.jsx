@@ -57,7 +57,7 @@ export default function FAQSection() {
         {/* Image Section */}
         <div className="w-full md:w-1/3 flex justify-center">
           <img
-            src="/img1.jpg"
+            src="/img/fa1.webp"
             alt="brass"
             className="w-full h-auto object-cover  shadow-md"
           />

@@ -20,7 +20,7 @@ const products = [
   },
   {
     id: 2,
-    img: "/img/p2.jpg",
+    img: "/img/p2.webp",
     heading: "New Launch Tea",
     title: "New Launch Tea",
     discount: 10,
@@ -56,7 +56,7 @@ const products = [
   },
   {
     id: 5,
-    img: "/img/p2.jpg",
+    img: "/img/p2.webp",
     heading: "New Launch Tea",
     title: "New Launch Tea",
     discount: 10,
@@ -93,7 +93,7 @@ const products = [
   },
   {
     id: 8,
-    img: "/img/p2.jpg",
+    img: "/img/p2.webp",
     heading: "New Launch Tea",
     title: "New Launch Tea",
     discount: 10,
@@ -129,7 +129,7 @@ const products = [
   },
   {
     id: 11,
-    img: "/img/p2.jpg",
+    img: "/img/p2.webp",
     heading: "New Launch Tea",
     title: "New Launch Tea",
     discount: 10,

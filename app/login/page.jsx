@@ -89,7 +89,7 @@ route.push("/")
     {/* Left Side - Image with Overlay */}
     <div className="hidden lg:flex w-1/2 relative">
       <img
-        src="/img1.jpg"
+        src="/img1.webp"
         alt="Background"
         className="w-full h-full object-cover"
       />

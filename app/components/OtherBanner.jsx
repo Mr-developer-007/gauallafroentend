@@ -9,7 +9,7 @@ const OtherBanner = ({ text }) => {
     <div className="relative w-full text-white">
       {/* Background image */}
       <img
-        src="/range.jpg"
+        src="/range.webp"
         alt="Header Background"
         className="absolute inset-0 w-full h-full object-fill -z-20"
       />

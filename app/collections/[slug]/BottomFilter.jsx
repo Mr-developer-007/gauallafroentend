@@ -43,10 +43,10 @@ const filterOptionsData = {
 
 
 const categoriesData = [
-  { title: "Rings", link: "/collections/rings", image: "https://www.forevermark.com/globalassets/images/2017-product-detail-page-updates/new-product-images/india-collections/icon-collection/fer029/icon_halo_engagement_ring_pave_diamonds_image4.jpg?format=webp" },
+  { title: "Rings", link: "/collections/rings", image: "https://www.forevermark.com/globalassets/images/2017-product-detail-page-updates/new-product-images/india-collections/icon-collection/fer029/icon_halo_engagement_ring_pave_diamonds_image4.webp?format=webp" },
   { title: "Earrings", link: "/collections/earrings", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt9IvS6BH5w3jyJjPzd5BtkrD0_wbo_uIatg&s" },
-  { title: "Necklaces", link: "/collections/necklaces", image: "https://www.orra.co.in/media/catalog/product/cache/8706a87b250cd4797f5bf599698c5c7a/o/s/osn23024_1_b0c2jti3rvtvgsgb.jpg" },
-  { title: "Bracelets", link: "/collections/bracelets", image: "https://www.ambery.in/live/img/business_product/xnJmHbH6AV_20230607181735.jpg" },
+  { title: "Necklaces", link: "/collections/necklaces", image: "https://www.orra.co.in/media/catalog/product/cache/8706a87b250cd4797f5bf599698c5c7a/o/s/osn23024_1_b0c2jti3rvtvgsgb.webp" },
+  { title: "Bracelets", link: "/collections/bracelets", image: "https://www.ambery.in/live/img/business_product/xnJmHbH6AV_20230607181735.webp" },
 
 ];
 

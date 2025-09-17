@@ -84,7 +84,7 @@ const tablles=[
         <div className="w-full flex flex-col md:flex-row items-center gap-x-5 p-5 bg-gradient-to-br from-gray-200 to-gray-100 backdrop-blur-3xl rounded-2xl">
           <div className="relative">
             <img
-              src="/img/user/userProfile1.png"
+              src="/img/user/userProfile1.webp"
               alt="user_profile"
               className="w-24 h-24 lg:h-32 lg:w-32 border-8 border-gray-500 rounded-full"
             />

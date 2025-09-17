@@ -29,7 +29,7 @@ const blogs = [
       date: "March 20, 2025",
       para: "To clean brass, use lemon and salt or tamarind paste. Avoid abrasive scrubbers and keep dry to preserve their natural shine.",
       title: "Brass Care 101: Cleaning, Polishing, and Storage Tips",
-      imageUrl: "/img#/Blog4.jpg",
+      imageUrl: "/img#/Blog4.webp",
     },
     {
       author: "Pooja Shah",

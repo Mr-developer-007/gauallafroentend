@@ -38,7 +38,7 @@ const AboutSection = () => {
           {/* Main Image */}
           <div className="relative w-full overflow-hidden  group transition-all duration-500 lg:w-4/5">
             <img
-              src="/img1.jpg"
+              src="/img1.webp"
               alt="Analyst"
               className=" h-auto object-contain w-full"
             />

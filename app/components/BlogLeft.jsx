@@ -69,7 +69,7 @@ const BlogLeft = () => {
                 title:
                   "Brass Care 101: Cleaning, Polishing, and Storage Tips",
 
-                img: "/img#/Blog4.jpg",
+                img: "/img#/Blog4.webp",
 
               },
             ].map((post, index, arr) => (

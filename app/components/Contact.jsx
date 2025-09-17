@@ -41,7 +41,7 @@ export default function Contact() {
       <div className="">
         <OtherBanner text={"Contact Us"} />
 
-        <div className="relative px-5 md:px-12 xl:px-32 py-5 md:py-10 bg-[url('/cta-bg.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className="relative px-5 md:px-12 xl:px-32 py-5 md:py-10 bg-[url('/cta-bg.webp')] bg-cover bg-center bg-no-repeat">
           <img
             src="/img/anime/anime1.webp"
             alt="anime"
@@ -55,7 +55,7 @@ export default function Contact() {
 
           <div>
             <div className="flex flex-col items-center justify-center gap-y-4 text-center">
-              <img src="/img/contact-us/1.png" alt="" />
+              <img src="/img/contact-us/1.webp" alt="" />
               <h6 className="text-gray-400 text-lg lg:text-xl">
                 Get in Touch With Us
               </h6>

@@ -105,7 +105,7 @@ export default function MyCart({ cart, setCart }) {
           <div className="text-center flex flex-col items-center py-10">
             <h2 className="text-xl font-semibold">Cart is Empty</h2>
             <p className="text-sm text-gray-500 mt-2">Looks like you haven't added anything to your cart yet.</p>
-            <img src="https://cdn-icons-png.flaticon.com/128/4290/4290854.png" alt="empty Cart" className="h-16 w-16 mt-4 lg:w-24 lg:h-24" />
+            <img src="https://cdn-icons-png.flaticon.com/128/4290/4290854.webp" alt="empty Cart" className="h-16 w-16 mt-4 lg:w-24 lg:h-24" />
             <div className="py-5">
               <Link
                 href="/product?name=all"
@@ -140,7 +140,7 @@ export default function MyCart({ cart, setCart }) {
 
         <div className="mt-4 flex items-center justify-center py-2 gap-x-2 text-wrap text-center bg-[#ebede57c] border-gray-400 border-t border-b">
           Earn{" "}
-          <img src="/img/product/coin.png" alt="coin" className="w-4 h-4" />
+          <img src="/img/product/coin.webp" alt="coin" className="w-4 h-4" />
           <span className="font-semibold text-base md:text-lg">50</span>
           Gaualla Milk Dairy Coins on this order
         </div>
@@ -150,7 +150,7 @@ export default function MyCart({ cart, setCart }) {
             <div className="mt-4 lg:mt-6 border border-gray-300 bg-[#ebede57c] p-4 rounded-lg shadow-sm flex flex-row md:flex-row items-start md:items-center justify-between gap-4">
               <div className="">
                 <img
-                  src={`${imageurl}/${JSON.parse(item?.images)[0]}` || "/img/product/default-product.jpg"}
+                  src={`${imageurl}/${JSON.parse(item?.images)[0]}` || "/img/product/default-product.webp"}
                   alt={item?.name}
                   className="h-20 w-20 md:h-24 md:w-24 rounded object-cover"
                 />

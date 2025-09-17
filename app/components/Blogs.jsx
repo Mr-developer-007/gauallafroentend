@@ -6,7 +6,7 @@ import { FaComments } from "react-icons/fa6";
 export default function LatestBlog() {
   const blogData1 = [
     {
-      image: "/img1.jpg",
+      image: "/img1.webp",
       title: "Health Benefits of Drinking Milk Daily",
       shape: "/img#/shape.webp",
       author: "By admin",
@@ -15,7 +15,7 @@ export default function LatestBlog() {
         "Milk is often called a “complete food” because it contains calcium, protein, vitamins, and minerals essential for our body. ",
     },
     {
-      image: "/img2.jpg",
+      image: "/img2.webp",
       title: "Why Milk is Called a Superfood",
       shape: "/img#/shape.webp",
       author: "By admin",
@@ -27,7 +27,7 @@ export default function LatestBlog() {
 
   const blogData2 = [
     {
-      image: "/img3.jpg",
+      image: "/img3.webp",
       title: "Best Times to Drink Milk – Morning or Night?",
       shape: "/img#/shape.webp",
       author: "By admin",
@@ -36,7 +36,7 @@ export default function LatestBlog() {
         "Many people wonder when it’s best to drink milk. Morning milk gives energy to start the day, while warm milk at night helps in relaxation and better sleep.",
     },
     {
-      image: "/img4.jpg",
+      image: "/img4.webp",
       title: "Milk for Fitness & Bodybuilding",
       shape: "/img#/shape.webp",
       author: "By admin",

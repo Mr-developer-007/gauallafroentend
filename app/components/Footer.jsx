@@ -61,7 +61,7 @@ const Footer = () => {
         className="fixed bottom-8 right-3 z-50"
       >
         <img
-          src="/whatsapp.png"   // put whatsapp.png in public folder
+          src="/whatsapp.webp"   // put whatsapp.webp in public folder
           alt="WhatsApp"
           className="w-10 lg:w-12 h-10 lg:h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
         />
@@ -73,7 +73,7 @@ const Footer = () => {
         className="fixed bottom-[85px] right-4 z-50" // placed above WhatsApp button
       >
         <img
-          src="/phone-call.png"   // put call.png in public folder (use phone icon)
+          src="/phone-call.webp"   // put call.webp in public folder (use phone icon)
           alt="Call Us"
           className="w-10 lg:w-12 h-10 lg:h-12 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
         />
@@ -81,7 +81,7 @@ const Footer = () => {
 
 
       <footer
-        className="bg-[url('/footer.jpg')] bg-cover bg-center bg-no-repeat mb-20 md:mb-0 text-white border-t border-[#eee] pt-10 px-5 md:px-12 xl:px-32 relative overflow-hidden"
+        className="bg-[url('/footer.webp')] bg-cover bg-center bg-no-repeat mb-20 md:mb-0 text-white border-t border-[#eee] pt-10 px-5 md:px-12 xl:px-32 relative overflow-hidden"
       > <div className="absolute inset-0 bg-white/60"></div>
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row gap-y-10  justify-between mb-8">
