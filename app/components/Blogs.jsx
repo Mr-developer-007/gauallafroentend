@@ -3,7 +3,7 @@ import React from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaComments } from "react-icons/fa6";
 
-export default function LatestBlog() {
+export default function Blogs() {
   const blogData1 = [
     {
       image: "/img1.webp",
