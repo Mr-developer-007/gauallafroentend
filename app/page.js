@@ -35,6 +35,13 @@ export default function page() {
         />
       </div>
       <ProductAyurved />
+      <div className="">
+        <img
+          src="/processs.webp"
+          alt="Header Background"
+          className="w-full h-full object-fill "
+        />
+      </div>
       <OfferPorductValid />
       <Testmonails />
       <Revival />

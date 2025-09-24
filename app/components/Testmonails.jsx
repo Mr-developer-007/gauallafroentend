@@ -56,7 +56,7 @@ export default function SuccessStory() {
       rating: 4,
       desc: "Their ghee has an aroma that fills the whole kitchen. Knowing it’s pure and free from additives makes me confident I’m giving my family the best.",
       img: "/admin.avif",
-      name: "Emily Davis",
+      name: "Vishal Thakur",
       position: "Pastry Chef",
     },
     {
@@ -77,10 +77,10 @@ export default function SuccessStory() {
   };
 
   return (
-    <div className="relative  mt-5 lg:mt-10 overflow-hidden  py-5 md:py-10 lg:py-16  bg-[url('https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/test-bg.webp')]  ">
+    <div className="relative  mt-5 lg:mt-10 overflow-hidden  py-5 md:py-10 lg:py-16  bg-[url('/test-bg.webp')]  ">
 
       <img
-        src="https://kamleshyadav.com/html/pure-ayurveda/html/pureayurveda-demo/assets/images/bg-shape3.webp"
+        src="/test-bg.webp"
         alt="cleint-review "
         className="absolute left-0 top-0"
       />

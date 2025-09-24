@@ -47,7 +47,7 @@ export default [
   {
     id: 4,
     title: "Brass Tawa",
-    slug: "brass-tawa-2", // Added suffix to avoid duplicate slug
+    slug: "brass-tawa-2",
     img: "/img/cowgee.webp",
     inerimgList: ["/img/cowgee.webp", "/img/cowgee.webp", "/img/cowgee.webp"],
     label: "BEST SELLERS",
@@ -74,6 +74,6 @@ export default [
     description:
       "Whether you’re looking for a crispy half-fried egg or golden, crunchy potato cutlets, P-TAL’s copper frying pan",
   },
- 
+
 
 ];

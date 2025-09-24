@@ -105,7 +105,7 @@ export default function MyCart({ cart, setCart }) {
           <div className="text-center flex flex-col items-center py-10">
             <h2 className="text-xl font-semibold">Cart is Empty</h2>
             <p className="text-sm text-gray-500 mt-2">Looks like you haven't added anything to your cart yet.</p>
-            <img src="https://cdn-icons-png.flaticon.com/128/4290/4290854.webp" alt="empty Cart" className="h-16 w-16 mt-4 lg:w-24 lg:h-24" />
+            {/* <img src="https://cdn-icons-png.flaticon.com/128/4290/4290854.webp" alt="empty Cart" className="h-16 w-16 mt-4 lg:w-24 lg:h-24" /> */}
             <div className="py-5">
               <Link
                 href="/product?name=all"

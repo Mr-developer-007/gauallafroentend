@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             {children}
           </NextLayout>
         </Providers>
-        
+
       </body>
     </html>
   );

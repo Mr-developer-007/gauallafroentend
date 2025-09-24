@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 const paymentOptions = [
-  { src: '//ptal.in/cdn/shop/files/Frame_50x.webp?v=1721808136', label: 'Pay via UPI' },
+  { src: '//ptal.in/cdn/shop/files/Frame_50x.png?v=1721808136', label: 'Pay via UPI' },
   { src: '//ptal.in/cdn/shop/files/Frame2_50x.svg?v=1721807879', label: 'Netbanking' },
   { src: '//ptal.in/cdn/shop/files/Frame3_50x.svg?v=1721807880', label: 'Wallets' },
   // { src: '//ptal.in/cdn/shop/files/Frame4_50x.svg?v=1721807893', label: 'EMIs' },

@@ -17,7 +17,6 @@ import { MdOutlineLocalPhone } from "react-icons/md";
 
 
 
-
 export default function MyNav() {
   const [sideBar, setSideBar] = useState(false);
   const dispatch = useDispatch()
@@ -26,6 +25,9 @@ export default function MyNav() {
   );
   const [productSearch, setProductSearch] = useState("");
 
+const cartCount = useSelector((state) =>
+    state.cart.cartItem.reduce((total, item) => total + item.qnty, 0)
+  );
 
 
   const [cart, setCart] = useState(false);
@@ -118,11 +120,11 @@ export default function MyNav() {
                   +91-8378-000052
                 </a>
                 <a
-                  href="mailto:Gauallamilkpvtltd@gmail.com"
+                  href="mailto:gauallamilkpvtltd@gmail.com"
                   className="flex items-center gap-x-2  hover:text-gray-800"
                 >
                   <HiOutlineMail />
-                  Gauallamilkpvtltd@gmail.com
+                  gauallamilkpvtltd@gmail.com
                 </a>
               </div>
               <div className="flex items-start gap-x-2  text-lg text-gray-800 hover:text-gray-800 transition-colors duration-200">
@@ -287,12 +289,17 @@ export default function MyNav() {
 
             : <li className="">
               <button
-                onClick={() => setCart(true)}
-                className="w-8 h-8 relative flex justify-center items-center rounded-full  bg-[#b2e18c30] border-[#62371f]  cursor-pointer"
-              >
-                <BsCartPlus className="text-[#62371f]" />
+      onClick={() => setCart(true)}
+      className="w-8 h-8 relative flex justify-center items-center rounded-full bg-[#b2e18c30] border border-[#62371f] cursor-pointer"
+    >
+      <BsCartPlus className="text-[#62371f]" />
 
-              </button>
+      {/* {cartCount > 0 && ( */}
+        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+          {cartCount}
+        </span>
+      {/* )} */}
+    </button>
             </li>}
           <li className="xl:hidden">
             <button onClick={() => setSideBar(!sideBar)} className="text-xl mt-2">

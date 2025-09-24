@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa6";
 import CommonForm from "./CommonForm";
 import OtherBanner from "./OtherBanner";
+import Link from "next/link";
 
 export default function Contact() {
   const contactInfo = [
@@ -22,16 +23,16 @@ export default function Contact() {
 
     {
       icon: <FaEnvelopeCircleCheck />,
-      link: "Gauallamilkpvtltd@gmail.com",
+      link: "mailto:gauallamilkpvtltd@gmail.com",
       title: "Email Us",
-      text: "Gauallamilkpvtltd@gmail.com",
+      text: "gauallamilkpvtltd@gmail.com",
 
     },
     {
       icon: <FaPhoneVolume />,
-      link: "tel: +91-8378-000052",
+      link: "tel:+91-8378-000052",
       title: "Call Us",
-      text: " +91-8378-000052",
+      text: "+91-8378-000052",
 
 
     },
@@ -129,7 +130,7 @@ export default function Contact() {
                           {info.title}
                         </h5>
                         <div className="text-xl font-light text-gray-800 md:text-nowrap">
-                          <p>{info.text}</p>
+                          <Link href={info.link}>{info.text}</Link>
                           <p>{info.text1}</p>
 
                         </div>

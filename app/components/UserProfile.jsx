@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CompleteProfileForm from "./CompleteProfileForm";
-import { FaBox,FaOpencart  } from "react-icons/fa";
+import { FaBox, FaOpencart } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 
 import { useRouter } from "next/navigation";
@@ -18,34 +18,32 @@ export default function UserProfile() {
   const [currentTab, setCurrentTab] = useState("My Profile");
   const [completeProfileForm, setCompleteProfileForm] = useState(false);
 
-const [cart,setCart]=useState(false)
+  const [cart, setCart] = useState(false)
   const user = info?.user || {};
 
- useEffect(()=>{
-  //   if (!info?.success) {
-  //   router.push("/user/login");
-    
-  // }
+  useEffect(() => {
+    //   if (!info?.success) {
+    //   router.push("/user/login");
+
+    // }
 
 
 
 
- },[isLoading])
+  }, [isLoading])
 
 
-const tablles=[
-{title:"order",
-  icon: <FaBox />,
-  link:"/user/order"
-},
-{title:"wishlist",
-  icon: <FaBox />,
-  link:"/wishlist"
-},
+  const tablles = [
+  
+    {
+      title: "wishlist",
+      icon: <FaBox />,
+      link: "/wishlist"
+    },
 
 
 
-]
+  ]
 
 
 
@@ -107,44 +105,44 @@ const tablles=[
           <div className="w-full flex flex-col md:flex-row items-start gap-x-5 p-5 bg-gradient-to-br from-gray-200 to-gray-100 backdrop-blur-3xl rounded-2xl">
             <div className="h-auto w-full rounded-2xl bg-white p-3 flex flex-col gap-1 lg:flex-row">
 
-     
-{tablles.map((item, index) => {
- 
-  return (
-    <Link
-      key={index}
-      href={item.link}
-      className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
+
+              {tablles.map((item, index) => {
+
+                return (
+                  <Link
+                    key={index}
+                    href={item.link}
+                    className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
       `}
-    >
-      <span className="text-lg">{item.icon}</span>
-      <span className="text-sm">{item.title}</span>
-    </Link>
-  );
-})}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-sm">{item.title}</span>
+                  </Link>
+                );
+              })}
 
 
-<button
-     onClick={()=>setCart(true)}
-      className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
+              <button
+                onClick={() => setCart(true)}
+                className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
       `}
-    >
-      <span className="text-lg"><FaOpencart  /></span>
-      <span className="text-sm">Cart</span>
-    </button>
-    <button
-      
-      className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
+              >
+                <span className="text-lg"><FaOpencart /></span>
+                <span className="text-sm">Cart</span>
+              </button>
+              <button
+
+                className={`flex items-center gap-3 px-4 py-3 text-gray-700 transition  hover:text-blue-600 border-b border-gray-200 last:border-b-0
       `}
-    >
-      <span className="text-lg"><MdLogout /></span>
-      <span className="text-sm">Logout</span>
-    </button>
+              >
+                <span className="text-lg"><MdLogout /></span>
+                <span className="text-sm">Logout</span>
+              </button>
 
 
 
 
-            
+
             </div>
           </div>
         )}
@@ -154,7 +152,7 @@ const tablles=[
         )}
       </div>
 
-       <MyCart cart={cart} setCart={setCart} />
+      <MyCart cart={cart} setCart={setCart} />
     </div>
   );
 }

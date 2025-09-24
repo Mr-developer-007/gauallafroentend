@@ -38,14 +38,6 @@ const Footer = () => {
   }, []);
 
 
-
-
-
-
-
-
-
-
   const pathName = usePathname();
 
   const check = pathName == "/";
@@ -54,30 +46,29 @@ const Footer = () => {
   return (
     <>
       {/* WhatsApp Button */}
-      <a
-        href="https://wa.me/+918378000052" // replace with your WhatsApp number
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-3 z-50"
-      >
-        <img
-          src="/whatsapp.webp"   // put whatsapp.webp in public folder
-          alt="WhatsApp"
-          className="w-10 lg:w-12 h-10 lg:h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
-        />
-      </a>
+     <a
+  href="https://wa.me/+918378000052"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-8 right-2.5 z-50"
+>
+  <img
+    src="/whatsapp.webp"
+    alt="WhatsApp"
+    className="w-10 h-10 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce"
+  />
+</a>
 
-
-      <a
-        href="tel:+918378000052" // replace with your phone number
-        className="fixed bottom-[85px] right-4 z-50" // placed above WhatsApp button
-      >
-        <img
-          src="/phone-call.webp"   // put call.webp in public folder (use phone icon)
-          alt="Call Us"
-          className="w-10 lg:w-12 h-10 lg:h-12 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
-        />
-      </a>
+<a
+  href="tel:+918378000052"
+  className="fixed bottom-[85px] right-3 z-50"
+>
+  <img
+    src="/phone-call.webp"
+    alt="Call Us"
+    className="w-10 h-10 bg-white rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce"
+  />
+</a>
 
 
       <footer
@@ -234,11 +225,11 @@ const Footer = () => {
                   +91-8378-000052
                 </a>
                 <a
-                  href="mailto:Gauallamilkpvtltd@gmail.com"
+                  href="mailto:gauallamilkpvtltd@gmail.com"
                   className="flex items-center gap-x-2  hover:text-gray-800"
                 >
                   <HiOutlineMail />
-                  Gauallamilkpvtltd@gmail.com
+                  gauallamilkpvtltd@gmail.com
                 </a>
               </div>
 

@@ -78,7 +78,7 @@ export default function TermsCondition() {
           <h2 className="text-xl font-semibold mb-2">10. Contact Us</h2>
           <p>If you have any questions, contact us at:</p>
           <ul className="list-none space-y-1 mt-2">
-            <li><strong>Email:</strong> Gauallamilkpvtltd@gmail.com</li>
+            <li><strong>Email:</strong> gauallamilkpvtltd@gmail.com</li>
             <li><strong>Phone:</strong> +91-8378-000052</li>
             <li><strong>Address:</strong> [Booth No 7, Pocket C, Wave Estate,
               Sector 85, Mohali, 140306], India</li>

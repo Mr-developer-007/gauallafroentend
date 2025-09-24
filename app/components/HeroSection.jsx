@@ -38,12 +38,12 @@ export default function HeroSection() {
       >
         {banners?.map((elm, index) => (
           <SwiperSlide key={index}>
-            <div className="h-[200px] md:h-[450px] lg:h-[600px] w-full relative mx-auto">
+            <div className="h-[133px] md:h-[450px] lg:h-[600px] w-full relative mx-auto">
 
               <img
                 src={`${imageurl}/${elm.image}`}
                 alt="banner"
-                className="w-full h-full object-fill"
+                className="w-full h-full object-cover md:object-fill"
               />
             </div>
           </SwiperSlide>
